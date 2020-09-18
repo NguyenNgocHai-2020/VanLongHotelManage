@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="service_tree_view" model="ir.ui.view">
+        <field name="name">Service View</field>
+        <field name="model">service</field>
+        <field name="arch" type="xml">
+            <tree string="Service View">
+                <field name="name"/>
+                <field name="price"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="service_form_view" model="ir.ui.view">
+        <field name="name">Service Form</field>
+        <field name="model">service</field>
+        <field name="arch" type="xml">
+            <form string="Service Form">
+                <sheet>
+                    <group string="Service Form">
+                        <field name="name"/>
+                        <field name="price"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="booking_tree_view" model="ir.ui.view">
+        <field name="name">Booking View</field>
+        <field name="model">booking</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="customer_id"/>
+                <field name="check_in"/>
+                <field name="check_out"/>
+<!--                <field name="amount_adult"/>-->
+<!--                <field name="amount_child"/>-->
+<!--                <field name="room_ids"/>-->
+                <field name="promotion"/>
+                <field name="cost"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="booking_form_view" model="ir.ui.view">
+        <field name="name">Booking Form</field>
+        <field name="model">booking</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group string="Customer">
+                        <field name="customer_id"/>
+                    </group>
+                    <group string="Amount">
+                            <field name="amount_adult"/>
+                            <field name="amount_child"/>
+                    </group>
+                    <notebook>
+                        <page string="Room">
+                            <group>
+                                <field name="room_ids" widget="many2many" domain="[('room_state','=','available')]"/>
+                            </group>
+                        </page>
+                        <page string="Service">
+                            <group>
+                                <field name="service" widget="many2many_checkboxes"/>
+                            </group>
+                        </page>
+                    </notebook>
+                    <group string="Details">
+                        <field name="check_in"/>
+                        <field name="check_out"/>
+                        <field name="promotion"/>
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="booking_action" model="ir.actions.act_window">
+        <field name="name">Bookings</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">booking</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

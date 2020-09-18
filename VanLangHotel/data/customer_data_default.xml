@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="customer_1" model="customer">
+            <field name="cus_name">Vũ Tuấn Anh</field>
+            <field name="card_id">115724851</field>
+            <field name="phone_number">0915169776</field>
+            <field name="address">Lạc Trung, Hà Nội</field>
+        </record>
+        <record id="customer_2" model="customer">
+            <field name="cus_name">Nguyễn Thu Huyền</field>
+            <field name="card_id">788688162</field>
+            <field name="phone_number">0907653449</field>
+            <field name="address">Nguyễn Khánh Toàn, Hà Nội</field>
+        </record>
+        <record id="customer_3" model="customer">
+            <field name="cus_name">Phạm Kim Tuyến</field>
+            <field name="card_id">287641337</field>
+            <field name="phone_number">0963204671</field>
+            <field name="address">Giải Phóng, Hà Nội</field>
+        </record>
+        <record id="customer_4" model="customer">
+            <field name="cus_name">Nguyễn Quang Cường</field>
+            <field name="card_id">161359755</field>
+            <field name="phone_number">0903417953</field>
+            <field name="address">Tập thể Ngọc Khánh, Hà Nội</field>
+        </record>
+        <record id="customer_5" model="customer">
+            <field name="cus_name">Lê Thu Hương</field>
+            <field name="card_id">727820569</field>
+            <field name="phone_number">0989811392</field>
+            <field name="address">Nguyễn Ngọc Nại, Hà Nội</field>
+        </record>
+        <record id="customer_6" model="customer">
+            <field name="cus_name">Vinh Lê</field>
+            <field name="card_id">828759512</field>
+            <field name="phone_number">0912060273</field>
+            <field name="address">Bà Triệu, Hà Nội</field>
+        </record>
+    </data>
+</odoo>

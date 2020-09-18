@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="rooms_tree_view" model="ir.ui.view">
+        <field name="name">Rooms Tree View</field>
+        <field name="model">room</field>
+        <field name="arch" type="xml">
+            <tree string="Rooms">
+                <field name="room_avatar" widget="image" width="50px" height="200px"/>
+                <field name="room_code"/>
+                <field name="room_type"/>
+                <field name="room_state"/>
+                <field name="booking_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="rooms_form_view" model="ir.ui.view">
+        <field name="name">Rooms Form View</field>
+        <field name="model">room</field>
+        <field name="arch" type="xml">
+            <form string="Rooms">
+                <sheet>
+                    <group string="Information">
+                        <field name="room_avatar" widget="image" width="50px" height="200px"/>
+                        <field name="room_code"/>
+                        <field name="room_type"/>
+                        <field name="room_state"/>
+                        <field name="price_room"/>
+                        <field name="room_description"/>
+                    </group>
+                    <group string="Room Amenities">
+                        <group>
+                            <field name="air_conditioned"/>
+                            <field name="Direct_dial_phone"/>
+                            <field name="Electronic_door_locks"/>
+                            <field name="Electronic_smoke_detector"/>
+                            <field name="Laundry_service"/>
+                            <field name="Safety_box"/>
+                            <field name="Refrigerator"/>
+                            <field name="Iron_and_board"/>
+                            <field name="Work_desk"/>
+                        </group>
+                        <group>
+                            <field name="Extra_bed"/>
+                            <field name="Cable_movie_channel"/>
+                            <field name="Television"/>
+                            <field name="Radio"/>
+                            <field name="Cd_player"/>
+                            <field name="Ipod_docks"/>
+                            <field name="Free_wifi"/>
+                            <field name="Free_internet_access"/>
+                            <field name="Sofa_bed"/>
+                        </group>
+                        <group>
+                            <field name="Hair_dryer"/>
+                            <field name="Shower"/>
+                            <field name="Bathtub"/>
+                            <field name="Bathrobe"/>
+                            <field name="Shower"/>
+                        </group>
+                        <group>
+                            <field name="Slippers"/>
+                            <field name="Living_room"/>
+                            <field name="Parking"/>
+                            <field name="coffee_tea"/>
+                            <field name="Lake_view"/>
+                            <field name="extra_persons_allowed"/>
+                        </group>
+                    </group>
+                    <group string="Booking">
+                        <field name="booking_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="room_search_view" model="ir.ui.view">
+        <field name="name">Room Search</field>
+        <field name="model">room</field>
+        <field name="arch" type="xml">
+            <search string="Room state">
+                <searchpanel>
+                    <field name="room_state" icon="fa-search-plus"/>
+                    <field name="room_type"/>
+                </searchpanel>
+            </search>
+        </field>
+    </record>
+
+    <record id="rooms_action" model="ir.actions.act_window">
+        <field name="name">Rooms</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">room</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+
+</odoo>

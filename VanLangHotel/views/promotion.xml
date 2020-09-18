@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="promotion_tree_view" model="ir.ui.view">
+        <field name="name">Promotion View</field>
+        <field name="model">promotion</field>
+        <field name="arch" type="xml">
+            <tree string="Promotion">
+                <field name="name"/>
+                <field name="promotion"/>
+<!--                <field name="description"/>-->
+                <field name="start_date"/>
+                <field name="expiration_date"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="promotion_Form_view" model="ir.ui.view">
+        <field name="name">Promotion Form</field>
+        <field name="model">promotion</field>
+        <field name="arch" type="xml">
+            <form string="Promotion Form">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="promotion"/>
+                        <field name="description"/>
+                        <field name="start_date"/>
+                        <field name="expiration_date"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>
