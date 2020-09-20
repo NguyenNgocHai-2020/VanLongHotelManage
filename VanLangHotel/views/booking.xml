@@ -6,12 +6,11 @@
         <field name="model">booking</field>
         <field name="arch" type="xml">
             <tree>
+                <field name="booking_id"/>
                 <field name="customer_id"/>
                 <field name="check_in"/>
                 <field name="check_out"/>
-<!--                <field name="amount_adult"/>-->
-<!--                <field name="amount_child"/>-->
-<!--                <field name="room_ids"/>-->
+                <field name="room_ids"/>
                 <field name="promotion"/>
                 <field name="cost"/>
             </tree>
@@ -23,18 +22,38 @@
         <field name="model">booking</field>
         <field name="arch" type="xml">
             <form>
+                <header>
+                    <button name="check_in_booking"
+                            string="Check in"
+                            type="object" class="oe_highlight"
+                    />
+                    <button name="check_out_booking"
+                            string="Check out"
+                            type="object" class="oe_highlight"
+                    />
+                    <button name="booking_paid"
+                            string="Pay"
+                            type="object" class="oe_highlight"
+                    />
+                    <button name="cancel_booking"
+                            string="Cancel"
+                            type="object" class="btn-danger"
+                    />
+                    <field name="state" widget="statusbar" statusbar_visible="booking,check_in,check_out,paid"/>
+                </header>
                 <sheet>
+                    <group>
+                        <field name="booking_id"/>
+                    </group>
                     <group string="Customer">
                         <field name="customer_id"/>
-                    </group>
-                    <group string="Amount">
-                            <field name="amount_adult"/>
-                            <field name="amount_child"/>
+                        <field name="amount_adult"/>
+                        <field name="amount_child"/>
                     </group>
                     <notebook>
                         <page string="Room">
                             <group>
-                                <field name="room_ids" widget="many2many" domain="[('room_state','=','available')]"/>
+                                <field name="room_ids" widget="many2many"/>
                             </group>
                         </page>
                         <page string="Service">
@@ -43,12 +62,18 @@
                             </group>
                         </page>
                     </notebook>
-                    <group string="Details">
-                        <field name="check_in"/>
-                        <field name="check_out"/>
-                        <field name="promotion"/>
+                    <group>
+                        <group string="Details">
+                            <field name="check_in"/>
+                            <field name="check_out"/>
+                            <field name="promotion"/>
+                            <field name="cost"/>
+                        </group>
+                        <group string="Other">
+                            <field name="note"/>
+                            <field name="surcharge"/>
+                        </group>
                     </group>
-
                 </sheet>
             </form>
         </field>

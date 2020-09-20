@@ -25,7 +25,7 @@
                         <field name="room_code"/>
                         <field name="room_type"/>
                         <field name="room_state"/>
-                        <field name="price_room"/>
+                        <field name="room_price"/>
                         <field name="room_description"/>
                     </group>
                     <group string="Room Amenities">

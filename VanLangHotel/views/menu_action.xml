@@ -40,7 +40,7 @@
     <menuitem id="room_menu_item" name="Rooms" parent="Van_Lang_Hotel" action="rooms_action"/>
     <menuitem id="customer_menu_item" name="Customers" parent="Van_Lang_Hotel" action="customer_action_window"/>
     <menuitem id="booking_menu_item" name="Bookings" parent="Van_Lang_Hotel" action="booking_action"/>
-    <menuitem id="employee_action_menu" name="Employee" parent="Van_Lang_Hotel" action="employee_action_view"/>
+    <menuitem id="employee_action_menu" name="Employee" parent="Van_Lang_Hotel" action="employee_action_view" />
     <menuitem id="service_menu_item" name="Service" parent="Van_Lang_Hotel" action="service_action"/>
     <menuitem id="promotion_menu_item" name="Promotion" parent="Van_Lang_Hotel" action="promotion_action"/>
 </odoo>

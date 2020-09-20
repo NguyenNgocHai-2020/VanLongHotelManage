@@ -31,11 +31,16 @@
         </field>
     </record>
 
-    <!-- actions opening views on models -->
-    <record model="ir.actions.act_window" id="customer_action_window">
-        <field name="name">Customer</field>
-        <field name="res_model">customer</field>
-        <field name="view_mode">tree,form</field>
+    <record id="customer_search_view" model="ir.ui.view">
+        <field name="name">Customer Search</field>
+        <field name="model">customer</field>
+        <field name="arch" type="xml">
+            <search string="Customer Search">
+                <field name="cus_name"/>
+                <field name="card_id"/>
+                <field name="phone_number"/>
+            </search>
+        </field>
     </record>
 
 </odoo>

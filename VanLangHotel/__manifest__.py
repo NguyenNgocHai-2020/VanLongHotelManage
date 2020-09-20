@@ -12,6 +12,9 @@
 
     ],
     'data': [
+        'security/VLH_group_user.xml',
+        'security/ir.model.access.csv',
+        'data/booking_sequence.xml',
         'views/menu_action.xml',
         'views/promotion.xml',
         'views/employee_view.xml',

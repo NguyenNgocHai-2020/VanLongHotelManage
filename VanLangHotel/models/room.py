@@ -6,18 +6,17 @@ class Rooms(models.Model):
     _rec_name = 'room_code'
 
     room_avatar = fields.Binary(string='Image')
-    room_code = fields.Char(string='Mã Phòng')
+    room_code = fields.Char(string='Room ID', required=True)
     room_type = fields.Selection(selection=[('standard', 'Standard'),
                                             ('superior', 'Superior'),
                                             ('deluxe', 'Deluxe'),
                                             ('suite', 'Suite')],
                                  string='Type Room', default='superior')
     room_state = fields.Selection(selection=[('available', 'Available'),
-                                             ('confirmed', 'Confirmed'),
                                              ('operational', 'Operational')],
                                   string='State', default='available')
-    price_room = fields.Float(compute='get_default_price_room',string='Price (VNĐ) ')
-    room_description = fields.Text(string='Description')
+    room_price = fields.Float(string='Price (VNĐ) ')
+    room_description = fields.Html(string='Description')
 
     air_conditioned = fields.Boolean('Air Conditioned')
     Bathrobe = fields.Boolean('Bathrobe')
@@ -52,7 +51,7 @@ class Rooms(models.Model):
 
     booking_id = fields.Many2one(comodel_name='booking', string='Booking')
 
-    @api.depends('room_type')
+    @api.onchange('room_type')
     def get_default_price_room(self):
         if self.room_type == 'standard':
             self.price_room = 1125936.68

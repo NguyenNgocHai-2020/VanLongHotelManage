@@ -5,6 +5,7 @@
             <field name="room_code">VLH5191</field>
             <field name="room_type">superior</field>
             <field name="room_state">available</field>
+            <field name="room_price">1414285.71</field>
             <field name="room_description">
                 Rooms are designed with modern equipment, luxurious and impressive decoration. Wide windows overlook the poetic and quiet lake, giving you a feeling of relaxation and comfort. This room class is suitable for business travelers wishing to stay long term or guests from travel agencies.
                 Occupation max – 2 people | ( 2 adults / 1 child )
@@ -44,6 +45,7 @@
             <field name="room_code">VLH4081</field>
             <field name="room_type">superior</field>
             <field name="room_state">available</field>
+            <field name="room_price">1414285.71</field>
             <field name="room_description">
                 Rooms are designed with modern equipment, luxurious and impressive decoration. Wide windows overlook the poetic and quiet lake, giving you a feeling of relaxation and comfort. This room class is suitable for business travelers wishing to stay long term or guests from travel agencies.
                 Occupation max – 2 people | ( 2 adults / 1 child )
@@ -82,6 +84,7 @@
             <field name="room_code">VLH5375</field>
            <field name="room_type">superior</field>
             <field name="room_state">available</field>
+            <field name="room_price">1414285.71</field>
             <field name="room_description">
                 Rooms are designed with modern equipment, luxurious and impressive decoration. Wide windows overlook the poetic and quiet lake, giving you a feeling of relaxation and comfort. This room class is suitable for business travelers wishing to stay long term or guests from travel agencies.
                 Occupation max – 2 people | ( 2 adults / 1 child )
@@ -120,6 +123,7 @@
             <field name="room_code">VLH7905</field>
             <field name="room_type">deluxe</field>
             <field name="room_state">available</field>
+            <field name="room_price">3311688.31</field>
             <field name="room_description">
                 Room includes a living room and bedroom overlooking the Lake. Each room is designed with luxurious style and modern equipment. Especially the room has a separate sitting area.
                 Occupation max – 2 people |  3 people ( 3 adults / 2 children )
@@ -159,6 +163,7 @@
             <field name="room_code">VLH6685</field>
             <field name="room_type">deluxe</field>
             <field name="room_state">available</field>
+            <field name="room_price">3311688.31</field>
             <field name="room_description">
                 Room includes a living room and bedroom overlooking the Lake. Each room is designed with luxurious style and modern equipment. Especially the room has a separate sitting area.
                 Occupation max – 2 people |  3 people ( 3 adults / 2 children )
@@ -198,6 +203,7 @@
             <field name="room_code">VLH6417</field>
             <field name="room_type">deluxe</field>
             <field name="room_state">available</field>
+            <field name="room_price">3311688.31</field>
             <field name="room_description">
                 Room includes a living room and bedroom overlooking the Lake. Each room is designed with luxurious style and modern equipment. Especially the room has a separate sitting area.
                 Occupation max – 2 people |  3 people ( 3 adults / 2 children )
@@ -237,6 +243,7 @@
             <field name="room_code">VLH7503</field>
             <field name="room_type">deluxe</field>
             <field name="room_state">available</field>
+            <field name="room_price">3311688.31</field>
             <field name="room_description">
                 Room includes a living room and bedroom overlooking the Lake. Each room is designed with luxurious style and modern equipment. Especially the room has a separate sitting area.
                 Occupation max – 2 people |  3 people ( 3 adults / 2 children )
@@ -276,6 +283,7 @@
             <field name="room_code">VLH8359</field>
             <field name="room_type">suite</field>
             <field name="room_state">available</field>
+            <field name="room_price">4783549.78</field>
             <field name="room_description">
                 With an area of 45m2, the room has large windows overlooking the romantic lake and is designed with a luxurious, elegant and modern style including a bedroom, large living room with large sofa and private toilet area.
                 Occupation max – 2 people |  3 people ( 3 adults / 2 children )
@@ -315,6 +323,7 @@
             <field name="room_code">VLH9068</field>
             <field name="room_type">suite</field>
             <field name="room_state">available</field>
+            <field name="room_price">4783549.78</field>
             <field name="room_description">
                 With an area of 45m2, the room has large windows overlooking the romantic lake and is designed with a luxurious, elegant and modern style including a bedroom, large living room with large sofa and private toilet area.
                 Occupation max – 2 people |  3 people ( 3 adults / 2 children )
@@ -354,6 +363,7 @@
             <field name="room_code">VLH9633</field>
             <field name="room_type">suite</field>
             <field name="room_state">available</field>
+            <field name="room_price">4783549.78</field>
             <field name="room_description">
                 With an area of 45m2, the room has large windows overlooking the romantic lake and is designed with a luxurious, elegant and modern style including a bedroom, large living room with large sofa and private toilet area.
                 Occupation max – 2 people |  3 people ( 3 adults / 2 children )
@@ -393,6 +403,7 @@
             <field name="room_code">VLH8418</field>
             <field name="room_type">suite</field>
             <field name="room_state">available</field>
+            <field name="room_price">4783549.78</field>
             <field name="room_description">
                 With an area of 45m2, the room has large windows overlooking the romantic lake and is designed with a luxurious, elegant and modern style including a bedroom, large living room with large sofa and private toilet area.
                 Occupation max – 2 people |  3 people ( 3 adults / 2 children )
@@ -432,6 +443,7 @@
             <field name="room_code">VLH8531</field>
             <field name="room_type">suite</field>
             <field name="room_state">available</field>
+            <field name="room_price">4783549.78</field>
             <field name="room_description">
                 With an area of 45m2, the room has large windows overlooking the romantic lake and is designed with a luxurious, elegant and modern style including a bedroom, large living room with large sofa and private toilet area.
                 Occupation max – 2 people |  3 people ( 3 adults / 2 children )
@@ -471,6 +483,7 @@
             <field name="room_code">VLH2093</field>
             <field name="room_type">standard</field>
             <field name="room_state">available</field>
+            <field name="room_price">1125936.68</field>
             <field name="room_description">
                 The area is just enough to suit guests with short-term accommodation needs or to save money
                 Occupation max – 2 people | 3 people ( 2 adults / 1 children )
@@ -510,6 +523,7 @@
             <field name="room_code">VLH3100</field>
             <field name="room_type">standard</field>
             <field name="room_state">available</field>
+            <field name="room_price">1125936.68</field>
             <field name="room_description">
                 The area is just enough to suit guests with short-term accommodation needs or to save money
                 Occupation max – 2 people | 3 people ( 2 adults / 1 children )
@@ -549,6 +563,7 @@
             <field name="room_code">VLH2555</field>
             <field name="room_type">standard</field>
             <field name="room_state">available</field>
+            <field name="room_price">1125936.68</field>
             <field name="room_description">
                 The area is just enough to suit guests with short-term accommodation needs or to save money
                 Occupation max – 2 people | 3 people ( 2 adults / 1 children )
@@ -588,6 +603,7 @@
             <field name="room_code">VLH3735</field>
             <field name="room_type">standard</field>
             <field name="room_state">available</field>
+            <field name="room_price">1125936.68</field>
             <field name="room_description">
                 The area is just enough to suit guests with short-term accommodation needs or to save money
                 Occupation max – 2 people | 3 people ( 2 adults / 1 children )
@@ -627,6 +643,7 @@
             <field name="room_code">VLH2954</field>
             <field name="room_type">standard</field>
             <field name="room_state">available</field>
+            <field name="room_price">1125936.68</field>
             <field name="room_description">
                 The area is just enough to suit guests with short-term accommodation needs or to save money
                 Occupation max – 2 people | 3 people ( 2 adults / 1 children )
@@ -666,6 +683,7 @@
             <field name="room_code">VLH3462</field>
             <field name="room_type">standard</field>
             <field name="room_state">available</field>
+            <field name="room_price">1125936.68</field>
             <field name="room_description">
                 The area is just enough to suit guests with short-term accommodation needs or to save money
                 Occupation max – 2 people | 3 people ( 2 adults / 1 children )
