@@ -11,38 +11,60 @@ class Booking(models.Model):
     customer_id = fields.Many2one(comodel_name='customer', string='Customer', required=True)
     check_in = fields.Date(string='Check-in', default=datetime.today())
     check_out = fields.Date(string='Check-out')
-    state = fields.Selection(selection=[('booking', 'Booking'),
+    state = fields.Selection(selection=[('draft', 'Draft'),
+                                        ('booking', 'Booking'),
                                         ('check_in', 'Check in'),
                                         ('check_out', 'Check out'),
-                                        ('paid', 'Paid')], string='State', default='booking')
+                                        ('paid', 'Paid')], string='State', default='draft')
     amount_adult = fields.Integer(string='Adult')
     amount_child = fields.Integer(string='Child ')
-    cost = fields.Float(compute='_calculate_cost', string='Cost')
+    money_room = fields.Float(compute='_calculate_money_room')
     service = fields.Many2many(comodel_name='service', string='Service')
     promotion = fields.Many2one(comodel_name='promotion', string='Promotion')
     room_ids = fields.One2many(comodel_name='room', inverse_name='booking_id', string='Rooms',
                                domain="[('room_state','=','available')]", required=True)
     note = fields.Text(string='Note')
     surcharge = fields.Float(string='Surcharge')
+    promotion_price = fields.Float(compute='_calculate_promotion_price')
+    sum_service = fields.Float(compute='_calculate_sum_service')
+    total_amount = fields.Float(compute='_calculate_total_amount')
 
     @api.model
     def create(self, vals):
         vals['booking_id'] = self.env['ir.sequence'].next_by_code('BOOKING_SEQUENCE')
         return super(Booking, self).create(vals)
 
-    def _calculate_cost(self):
+    def _calculate_promotion_price(self):
+        for booking in self:
+            total = 0
+            if booking.promotion:
+                total = booking.money_room * booking.promotion.promotion
+            booking.promotion_price = total
+
+    def _calculate_sum_service(self):
+        for booking in self:
+            total = 0
+            if booking.service:
+                for service in booking.service:
+                    total += service.price
+            booking.sum_service = total
+
+    def _calculate_money_room(self):
         for booking in self:
             total = 0
             for room in booking.room_ids:
                 total += room.room_price
-            if booking.service:
-                for service in booking.service:
-                    total = total + service.price
-            if booking.promotion:
-                total = total - total * booking.promotion.promotion
+            booking.money_room = total
+
+    def _calculate_total_amount(self):
+        for booking in self:
             if booking.surcharge:
-                total = total + booking.surcharge
-            booking.cost = total
+                booking.total_amount = booking.money_room + booking.sum_service - booking.promotion_price - booking.surcharge
+            else:
+                booking.total_amount = booking.money_room + booking.sum_service - booking.promotion_price
+
+    def booking(self):
+        self.state = 'booking'
 
     def check_in_booking(self):
         self.state = 'check_in'

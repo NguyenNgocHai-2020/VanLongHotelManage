@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
+    <record id="picture_action" model="ir.actions.act_window">
+        <field name="name">Picture</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">picture</field>
+        <field name="view_mode">tree,form</field>
+    </record>
     <record id="promotion_action" model="ir.actions.act_window">
         <field name="name">Promotions</field>
         <field name="type">ir.actions.act_window</field>
@@ -16,13 +22,13 @@
         <field name="name">Rooms</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">room</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">kanban,tree,form</field>
     </record>
     <record id="employee_action_view" model="ir.actions.act_window">
         <field name="name">Employee</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">employee</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">kanban,tree,form</field>
     </record>
     <record model="ir.actions.act_window" id="customer_action_window">
         <field name="name">Customer</field>
@@ -43,4 +49,5 @@
     <menuitem id="employee_action_menu" name="Employee" parent="Van_Lang_Hotel" action="employee_action_view" />
     <menuitem id="service_menu_item" name="Service" parent="Van_Lang_Hotel" action="service_action"/>
     <menuitem id="promotion_menu_item" name="Promotion" parent="Van_Lang_Hotel" action="promotion_action"/>
+    <menuitem id="picture_menu_item" name="Picture" parent="Van_Lang_Hotel" action="picture_action"/>
 </odoo>

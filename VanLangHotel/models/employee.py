@@ -6,6 +6,7 @@ from odoo.exceptions import UserError, ValidationError
 class Employee(models.Model):
     _name = 'employee'
 
+    avatar = fields.Binary(string='avatar')
     name = fields.Char(string='Name', required=True)
     dob = fields.Date(string='Date of Birth')
     regency = fields.Selection(selection=[('manager', 'Manager'),
@@ -13,6 +14,7 @@ class Employee(models.Model):
                                           ('housekeeping', 'Housekeeping')], string='Position')
     address = fields.Char(string='Address')
     phone = fields.Char(string='Phone')
+
 
     @api.model
     def create(self, vals):

@@ -28,6 +28,9 @@
                         <field name="room_price"/>
                         <field name="room_description"/>
                     </group>
+                    <group string="Image">
+                        <field name="pictures"/>
+                    </group>
                     <group string="Room Amenities">
                         <group>
                             <field name="air_conditioned"/>
@@ -75,6 +78,43 @@
         </field>
     </record>
 
+    <record id="room_kanban_view" model="ir.ui.view">
+        <field name="name">Room Kanban</field>
+        <field name="model">room</field>
+        <field name="arch" type="xml">
+            <kanban default_order="id asc">
+                <field name="id"/>
+                <field name="room_avatar"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="o_kanban_image">
+                                <img alt="image error" t-if="record.room_avatar.raw_value"
+                                     t-att-src="kanban_image('room', 'room_avatar', record.id.raw_value)"/>
+                            </div>
+                            <div class="oe_kanban_details">
+                                <strong style="color:red;">
+                                    <field name="room_code"/>
+                                </strong>
+                                <ul>
+                                    <li>Type Room :
+                                        <field name="room_type"/>
+                                    </li>
+                                    <li>Price :
+                                        <field name="room_price"/>
+                                    </li>
+                                    <li>State :
+                                        <field name="room_state"/>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
     <record id="room_search_view" model="ir.ui.view">
         <field name="name">Room Search</field>
         <field name="model">room</field>
@@ -87,14 +127,5 @@
             </search>
         </field>
     </record>
-
-    <record id="rooms_action" model="ir.actions.act_window">
-        <field name="name">Rooms</field>
-        <field name="type">ir.actions.act_window</field>
-        <field name="res_model">room</field>
-        <field name="view_mode">tree,form</field>
-    </record>
-
-    <!-- This Menu Item must have a parent and an action -->
 
 </odoo>

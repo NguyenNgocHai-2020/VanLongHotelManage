@@ -2,7 +2,7 @@
 <odoo>
     <data>
         <record id = 'promotion_1' model="promotion">
-            <field name="name">Khai trương Khách sạn Hà Nội -30%</field>
+            <field name="name">Khai trương Khách sạn Văn Lang -30%</field>
             <field name="promotion">0.3</field>
             <field name="description">Đặt phòng ngay để được giảm giá lên tới 30% nhân ngày khai trương khách sạn Hà Nội</field>
         </record>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="image_1" model="picture">
+            <field name="picture">
+                <img src='D:\VanLongHotelManage\VanLangHotel\static\image\image.png'/>
+            </field>
+        </record>
+    </data>
+</odoo>

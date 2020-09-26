@@ -10,9 +10,8 @@
                 <field name="customer_id"/>
                 <field name="check_in"/>
                 <field name="check_out"/>
-                <field name="room_ids"/>
-                <field name="promotion"/>
-                <field name="cost"/>
+                <field name="room_ids" widget="many2many_tags"/>
+                <field name="total_amount"/>
             </tree>
         </field>
     </record>
@@ -23,21 +22,34 @@
         <field name="arch" type="xml">
             <form>
                 <header>
+                    <button name="booking"
+                            confirm="Are you sure you want to make a reservation?"
+                            string="Booking"
+                            type="object" class="oe_highlight"
+                            states="draft"
+
+                    />
                     <button name="check_in_booking"
                             string="Check in"
                             type="object" class="oe_highlight"
+                            states="booking"
+
                     />
                     <button name="check_out_booking"
                             string="Check out"
                             type="object" class="oe_highlight"
+                            states="check_in"
                     />
                     <button name="booking_paid"
                             string="Pay"
                             type="object" class="oe_highlight"
+                            states="check_out"
                     />
                     <button name="cancel_booking"
                             string="Cancel"
+                            confirm="Do you want to cancel this reservation?"
                             type="object" class="btn-danger"
+                            states="booking"
                     />
                     <field name="state" widget="statusbar" statusbar_visible="booking,check_in,check_out,paid"/>
                 </header>
@@ -53,7 +65,14 @@
                     <notebook>
                         <page string="Room">
                             <group>
-                                <field name="room_ids" widget="many2many"/>
+                                <field name="room_ids" widget="many2many">
+                                    <tree>
+                                        <field name='room_avatar' widget="image" width="50px" height="200px"/>
+                                        <field name='room_code'/>
+                                        <field name="room_type"/>
+                                        <field name="room_price"/>
+                                    </tree>
+                                </field>
                             </group>
                         </page>
                         <page string="Service">
@@ -67,12 +86,26 @@
                             <field name="check_in"/>
                             <field name="check_out"/>
                             <field name="promotion"/>
-                            <field name="cost"/>
                         </group>
                         <group string="Other">
                             <field name="note"/>
                             <field name="surcharge"/>
                         </group>
+                    </group>
+                    <group name="note_group" col="6">
+                        <group class="oe_subtotal_footer oe_right" colspan="2">
+                            <field name="money_room" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                            <field name="sum_service" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                            <field name="promotion_price" widget='monetary'
+                                   options="{'currency_field': 'currency_id'}"/>
+                            <field name="surcharge" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                            <div class="oe_subtotal_footer_separator oe_inline o_td_label">
+                                <label for="total_amount"/>
+                            </div>
+                            <field name="total_amount" nolabel="1" class="oe_subtotal_footer_separator"
+                                   widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                        </group>
+                        <div class="oe_clear"/>
                     </group>
                 </sheet>
             </form>

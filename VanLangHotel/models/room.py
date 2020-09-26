@@ -50,6 +50,8 @@ class Rooms(models.Model):
     extra_persons_allowed = fields.Boolean('Maximum extra persons allowed')
 
     booking_id = fields.Many2one(comodel_name='booking', string='Booking')
+    pictures = fields.One2many(comodel_name='picture', inverse_name='room_id', string='Image')
+
 
     @api.onchange('room_type')
     def get_default_price_room(self):
