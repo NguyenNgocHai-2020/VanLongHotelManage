@@ -39,10 +39,10 @@
         <field name="name">Bookings</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">booking</field>
-        <field name="view_mode">kanban,calendar,pivot,tree,form</field>
+        <field name="view_mode">kanban,calendar,graph,pivot,tree,form</field>
     </record>
 
-    <menuitem id="Van_Lang_Hotel" name="Van Lang Hotel" sequence="1"/>
+    <menuitem id="Van_Lang_Hotel" name="Văn Lang Hotel" sequence="1"/>
     <menuitem id="room_menu_item" name="Rooms" parent="Van_Lang_Hotel" action="rooms_action"/>
     <menuitem id="customer_menu_item" name="Customers" parent="Van_Lang_Hotel" action="customer_action_window"/>
     <menuitem id="booking_menu_item" name="Bookings" parent="Van_Lang_Hotel" action="booking_action"/>

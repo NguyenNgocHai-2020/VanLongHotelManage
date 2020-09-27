@@ -20,7 +20,7 @@
         <field name="name">Booking Form</field>
         <field name="model">booking</field>
         <field name="arch" type="xml">
-            <form>
+            <form create="false">
                 <header>
                     <button name="booking"
                             confirm="Are you sure you want to make a reservation?"
@@ -55,10 +55,10 @@
                 </header>
                 <sheet>
                     <div class="oe_button_box" name="button_box">
-                        <button name="%(VanLangHotel.room_by_booking_id_action)d" type="action" class="oe_stat_button" >
+                        <button name="%(VanLangHotel.room_by_booking_id_action)d" type="action" class="oe_stat_button">
                             <div class="o_form_field o_stat_info">
                                 <span class="o_stat_value">
-                                    <field name="room_count" />
+                                    <field name="room_count"/>
                                 </span>
                                 <span class="o_stat_text">Rooms</span>
                             </div>
@@ -71,6 +71,17 @@
                         <field name="customer_id"/>
                         <field name="amount_adult"/>
                         <field name="amount_child"/>
+                    </group>
+                    <group>
+                        <group string="Details">
+                            <field name="check_in"/>
+                            <field name="check_out"/>
+                            <field name="promotion"/>
+                        </group>
+                        <group string="Other">
+                            <field name="note"/>
+                            <field name="surcharge"/>
+                        </group>
                     </group>
                     <notebook>
                         <page string="Room">
@@ -91,17 +102,6 @@
                             </group>
                         </page>
                     </notebook>
-                    <group>
-                        <group string="Details">
-                            <field name="check_in"/>
-                            <field name="check_out"/>
-                            <field name="promotion"/>
-                        </group>
-                        <group string="Other">
-                            <field name="note"/>
-                            <field name="surcharge"/>
-                        </group>
-                    </group>
                     <group name="note_group" col="6">
                         <group class="oe_subtotal_footer oe_right" colspan="2">
                             <field name="money_room" widget='monetary' options="{'currency_field': 'currency_id'}"/>
@@ -144,7 +144,9 @@
                                             <field name="room_count"/>
                                         </li>
                                         <li>State:
-                                            <field name="state"/>
+                                            <b style="color:#20B2AA;">
+                                                <field name="state"/>
+                                            </b>
                                         </li>
                                     </ul>
                                 </div>
@@ -177,6 +179,17 @@
                 <field name="room_ids"/>
                 <field name="total_amount" widget="monetary"/>
             </calendar>
+        </field>
+    </record>
+
+    <record id="booking_graph_view" model="ir.ui.view">
+        <field name="name">Booking Calendar</field>
+        <field name="model">booking</field>
+        <field name="arch" type="xml">
+            <graph string="Booking Analysis" type="line">
+                 <field name="check_in" type="row" interval="day"/>
+                 <field name="total_amount" type="measure"/>
+             </graph>
         </field>
     </record>
 

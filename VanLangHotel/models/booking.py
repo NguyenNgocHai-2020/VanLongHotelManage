@@ -1,5 +1,5 @@
 from odoo import models, fields, api
-from datetime import datetime
+from datetime import date
 from odoo.exceptions import UserError, ValidationError
 
 
@@ -9,8 +9,8 @@ class Booking(models.Model):
 
     booking_id = fields.Char(string='ID', default='New', readonly=1)
     customer_id = fields.Many2one(comodel_name='customer', string='Customer', required=True)
-    check_in = fields.Date(string='Check-in', default=datetime.today())
-    check_out = fields.Date(string='Check-out')
+    check_in = fields.Date(string='Check-in', default=date.today())
+    check_out = fields.Date(string='Check-out', required=True)
     state = fields.Selection(selection=[('draft', 'Draft'),
                                         ('booking', 'Booking'),
                                         ('check_in', 'Check in'),
@@ -22,13 +22,20 @@ class Booking(models.Model):
     service = fields.Many2many(comodel_name='service', string='Service')
     promotion = fields.Many2one(comodel_name='promotion', string='Promotion')
     room_ids = fields.One2many(comodel_name='room', inverse_name='booking_id', string='Rooms',
-                               domain="[('room_state','=','available')]", required=True)
+                               required=True)
     room_count = fields.Integer(compute='_get_room_count', string='Room Count', store=True)
     note = fields.Text(string='Note')
     surcharge = fields.Float(string='Surcharge')
     promotion_price = fields.Float(compute='_calculate_promotion_price', store=True)
     sum_service = fields.Float(compute='_calculate_sum_service', store=True)
     total_amount = fields.Float(compute='_calculate_total_amount', store=True)
+
+    @api.onchange('room_ids')
+    def onchange_room_ids(self):
+        result = {}
+        domain = {'room_ids': [('room_state', '=', 'available')]}
+        result['domain'] = domain
+        return result
 
     @api.model
     def create(self, vals):
@@ -57,13 +64,18 @@ class Booking(models.Model):
                     total += service.price
             booking.sum_service = total
 
-    @api.depends('room_ids.room_price')
+    @api.depends('room_ids.room_price', 'check_in', 'check_out')
     def _calculate_money_room(self):
         for booking in self:
             total = 0
             for room in booking.room_ids:
                 total += room.room_price
-            booking.money_room = total
+            if booking.check_in and booking.check_out:
+                total_day = str(booking.check_out - booking.check_in)
+                total_day = int(total_day[0])
+                booking.money_room = total * total_day
+            else:
+                booking.money_room = total
 
     @api.depends('promotion_price', 'sum_service', 'money_room', 'surcharge')
     def _calculate_total_amount(self):
