@@ -128,4 +128,12 @@
         </field>
     </record>
 
+    <record id="room_by_booking_id_action" model="ir.actions.act_window">
+        <field name="name">Room</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">room</field>
+        <field name="context">{'search_default_booking_id': active_id}</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
 </odoo>

@@ -11,7 +11,7 @@
                 <field name="check_in"/>
                 <field name="check_out"/>
                 <field name="room_ids" widget="many2many_tags"/>
-                <field name="total_amount"/>
+                <field name="total_amount" sum="Total"/>
             </tree>
         </field>
     </record>
@@ -54,6 +54,16 @@
                     <field name="state" widget="statusbar" statusbar_visible="booking,check_in,check_out,paid"/>
                 </header>
                 <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="%(VanLangHotel.room_by_booking_id_action)d" type="action" class="oe_stat_button" >
+                            <div class="o_form_field o_stat_info">
+                                <span class="o_stat_value">
+                                    <field name="room_count" />
+                                </span>
+                                <span class="o_stat_text">Rooms</span>
+                            </div>
+                        </button>
+                    </div>
                     <group>
                         <field name="booking_id"/>
                     </group>
@@ -112,10 +122,62 @@
         </field>
     </record>
 
-    <record id="booking_action" model="ir.actions.act_window">
-        <field name="name">Bookings</field>
-        <field name="type">ir.actions.act_window</field>
-        <field name="res_model">booking</field>
-        <field name="view_mode">tree,form</field>
+    <record id="booking_kanban_view" model="ir.ui.view">
+        <field name="name">Booking</field>
+        <field name="model">booking</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="booking_id"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <strong style="color:red;">
+                                    <field name="customer_id"/>
+                                </strong>
+                                <div>
+                                    <ul>
+                                        <li>Check in:
+                                            <field name="check_in"/>
+                                        </li>
+                                        <li>Room Count:
+                                            <field name="room_count"/>
+                                        </li>
+                                        <li>State:
+                                            <field name="state"/>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
     </record>
+
+
+    <record id="view_pivot" model="ir.ui.view">
+        <field name="name">Booking Pivot</field>
+        <field name="model">booking</field>
+        <field name="arch" type="xml">
+            <calendar string="Bookings" date_start="check_in">
+                <field name="customer_id"/>
+                <field name="total_amount" widget="monetary"/>
+            </calendar>
+        </field>
+    </record>
+
+    <record id="booking_calendar_view" model="ir.ui.view">
+        <field name="name">Booking Calendar</field>
+        <field name="model">booking</field>
+        <field name="arch" type="xml">
+            <calendar string="Booking Calendar" date_start="check_in" color="state" hide_time="true" event_limit="5">
+                <field name="customer_id"/>
+                <field name="room_ids"/>
+                <field name="total_amount" widget="monetary"/>
+            </calendar>
+        </field>
+    </record>
+
 </odoo>

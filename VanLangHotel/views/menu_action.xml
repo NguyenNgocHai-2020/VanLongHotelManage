@@ -39,7 +39,7 @@
         <field name="name">Bookings</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">booking</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">kanban,calendar,pivot,tree,form</field>
     </record>
 
     <menuitem id="Van_Lang_Hotel" name="Van Lang Hotel" sequence="1"/>

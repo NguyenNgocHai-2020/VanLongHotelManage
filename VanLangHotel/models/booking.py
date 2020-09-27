@@ -18,22 +18,29 @@ class Booking(models.Model):
                                         ('paid', 'Paid')], string='State', default='draft')
     amount_adult = fields.Integer(string='Adult')
     amount_child = fields.Integer(string='Child ')
-    money_room = fields.Float(compute='_calculate_money_room')
+    money_room = fields.Float(compute='_calculate_money_room', store=True)
     service = fields.Many2many(comodel_name='service', string='Service')
     promotion = fields.Many2one(comodel_name='promotion', string='Promotion')
-    room_ids = fields.One2many(comodel_name='room', inverse_name='booking_id', string='Rooms',
+    room_ids = fields.Many2many(comodel_name='room', inverse_name='booking_id', string='Rooms',
                                domain="[('room_state','=','available')]", required=True)
+    room_count = fields.Integer(compute='_get_room_count', string='Room Count', store=True)
     note = fields.Text(string='Note')
     surcharge = fields.Float(string='Surcharge')
-    promotion_price = fields.Float(compute='_calculate_promotion_price')
-    sum_service = fields.Float(compute='_calculate_sum_service')
-    total_amount = fields.Float(compute='_calculate_total_amount')
+    promotion_price = fields.Float(compute='_calculate_promotion_price', store=True)
+    sum_service = fields.Float(compute='_calculate_sum_service', store=True)
+    total_amount = fields.Float(compute='_calculate_total_amount', store=True)
 
     @api.model
     def create(self, vals):
         vals['booking_id'] = self.env['ir.sequence'].next_by_code('BOOKING_SEQUENCE')
         return super(Booking, self).create(vals)
 
+    @api.depends('room_ids')
+    def _get_room_count(self):
+        for room in self:
+            room.room_count = len(room.room_ids)
+
+    @api.depends('promotion')
     def _calculate_promotion_price(self):
         for booking in self:
             total = 0
@@ -41,6 +48,7 @@ class Booking(models.Model):
                 total = booking.money_room * booking.promotion.promotion
             booking.promotion_price = total
 
+    @api.depends('service')
     def _calculate_sum_service(self):
         for booking in self:
             total = 0
@@ -49,6 +57,7 @@ class Booking(models.Model):
                     total += service.price
             booking.sum_service = total
 
+    @api.depends('room_ids.room_price')
     def _calculate_money_room(self):
         for booking in self:
             total = 0
@@ -56,6 +65,7 @@ class Booking(models.Model):
                 total += room.room_price
             booking.money_room = total
 
+    @api.depends('promotion_price', 'sum_service', 'money_room', 'surcharge')
     def _calculate_total_amount(self):
         for booking in self:
             if booking.surcharge:
