@@ -21,7 +21,7 @@ class Booking(models.Model):
     money_room = fields.Float(compute='_calculate_money_room', store=True)
     service = fields.Many2many(comodel_name='service', string='Service')
     promotion = fields.Many2one(comodel_name='promotion', string='Promotion')
-    room_ids = fields.Many2many(comodel_name='room', inverse_name='booking_id', string='Rooms',
+    room_ids = fields.One2many(comodel_name='room', inverse_name='booking_id', string='Rooms',
                                domain="[('room_state','=','available')]", required=True)
     room_count = fields.Integer(compute='_get_room_count', string='Room Count', store=True)
     note = fields.Text(string='Note')
