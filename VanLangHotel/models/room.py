@@ -49,7 +49,7 @@ class Rooms(models.Model):
     coffee_tea = fields.Boolean('Fresh ground coffee & loose leaf tea')
     extra_persons_allowed = fields.Boolean('Maximum extra persons allowed')
 
-    booking_id = fields.Many2one(comodel_name='booking', string='Booking')
+    booking_id = fields.Many2many(comodel_name='booking', string='Booking')
     pictures = fields.One2many(comodel_name='picture', inverse_name='room_id', string='Image')
 
 
