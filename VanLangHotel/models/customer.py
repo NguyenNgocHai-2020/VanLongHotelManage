@@ -11,6 +11,8 @@ class Customer(models.Model):
     phone_number = fields.Char(string='Phone')
     address = fields.Char(string='Address')
     booking_ids = fields.One2many(comodel_name='booking', inverse_name='customer_id', string='Booking')
+    booking_count = fields.Integer(string='Booking Count', compute='_booking_count')
+    total_spending = fields.Float(string='Total spending', compute='_total_spending_customer')
 
     @api.model
     def create(self, vals):
@@ -24,6 +26,22 @@ class Customer(models.Model):
             vals['cus_name'] = vals['cus_name'].title()
         res = super(Customer, self).write(vals)
         return res
+
+    @api.depends('booking_ids')
+    def _booking_count(self):
+        for customer in self:
+            customer.booking_count = len(customer.booking_ids)
+
+    @api.depends('booking_ids')
+    def _total_spending_customer(self):
+        for cus in self:
+            if cus.booking_ids:
+                total_booking_price = 0
+                for booking in cus.booking_ids:
+                    total_booking_price += booking.total_amount
+                cus.total_spending = total_booking_price
+            else:
+                cus.total_spending = 0
 
     @api.constrains('phone_number')
     def validate_phone(self):

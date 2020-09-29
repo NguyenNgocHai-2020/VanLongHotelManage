@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-    <data>
+    <data noupdate="1">
         <record id="employee_1" model="employee">
             <field name="name">Trần Cẩm Tú</field>
             <field name="dob">1989-12-8</field>

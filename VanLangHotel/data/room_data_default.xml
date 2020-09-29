@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-    <data>
+    <data noupdate="1">
         <record id="room_1" model="room">
             <field name="room_code">VLH5191</field>
             <field name="room_type">superior</field>

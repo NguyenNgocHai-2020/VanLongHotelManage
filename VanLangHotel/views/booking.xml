@@ -10,6 +10,7 @@
                 <field name="customer_id"/>
                 <field name="check_in"/>
                 <field name="check_out"/>
+                <field name="state"/>
                 <field name="room_ids" widget="many2many_tags"/>
                 <field name="total_amount" sum="Total"/>
             </tree>
@@ -20,7 +21,7 @@
         <field name="name">Booking Form</field>
         <field name="model">booking</field>
         <field name="arch" type="xml">
-            <form create="false">
+            <form>
                 <header>
                     <button name="booking"
                             confirm="Are you sure you want to make a reservation?"
@@ -76,6 +77,7 @@
                         <group string="Details">
                             <field name="check_in"/>
                             <field name="check_out"/>
+                            <field name="number_of_days_reserved"/>
                             <field name="promotion"/>
                         </group>
                         <group string="Other">
@@ -98,14 +100,22 @@
                         </page>
                         <page string="Service">
                             <group>
-                                <field name="service" widget="many2many_checkboxes"/>
+                                <field name="service_order">
+                                    <tree editable="1">
+                                         <field name="service_id"/>
+<!--                                        <field name="name"/>-->
+                                        <field name="quantity"/>
+                                        <field name="amount"/>
+                                        <field name="price"/>
+                                    </tree>
+                                </field>
                             </group>
                         </page>
                     </notebook>
                     <group name="note_group" col="6">
                         <group class="oe_subtotal_footer oe_right" colspan="2">
-                            <field name="money_room" widget='monetary' options="{'currency_field': 'currency_id'}"/>
-                            <field name="sum_service" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                            <field name="room_total" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                            <field name="sum_service_order" widget='monetary' options="{'currency_field': 'currency_id'}"/>
                             <field name="promotion_price" widget='monetary'
                                    options="{'currency_field': 'currency_id'}"/>
                             <field name="surcharge" widget='monetary' options="{'currency_field': 'currency_id'}"/>
@@ -174,7 +184,7 @@
         <field name="name">Booking Calendar</field>
         <field name="model">booking</field>
         <field name="arch" type="xml">
-            <calendar string="Booking Calendar" date_start="check_in" color="state" hide_time="true" event_limit="5">
+            <calendar string="Booking Calendar" date_start="check_in" color="state" hide_time="true" event_limit="5" mode="month">
                 <field name="customer_id"/>
                 <field name="room_ids"/>
                 <field name="total_amount" widget="monetary"/>
@@ -186,11 +196,28 @@
         <field name="name">Booking Calendar</field>
         <field name="model">booking</field>
         <field name="arch" type="xml">
-            <graph string="Booking Analysis" type="line">
-                 <field name="check_in" type="row" interval="day"/>
-                 <field name="total_amount" type="measure"/>
-             </graph>
+            <graph string="Booking Analysis" type="line" >
+                <field name="check_in" type="row" interval="day" />
+                <field name="total_amount" type="measure" />
+            </graph>
         </field>
     </record>
+
+    <record id="booking_search_view" model="ir.ui.view">
+        <field name="name">Booking Search</field>
+        <field name="model">booking</field>
+        <field name="arch" type="xml">
+            <search string="Booking Search">
+                <field name="booking_id"/>
+                <field name="customer_id"/>
+                <group expand="0" string="Group By">
+                    <filter string="State" name="state" context="{'group_by': 'state'}"></filter>
+                    <filter string="Check in" name="check_in" context="{'group_by': 'check_in'}"></filter>
+                    <filter string="Check out" name="check_out" context="{'group_by': 'check_out'}"></filter>
+                </group>
+            </search>
+        </field>
+    </record>
+
 
 </odoo>

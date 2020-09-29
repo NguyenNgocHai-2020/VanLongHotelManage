@@ -6,7 +6,7 @@ from odoo.exceptions import UserError, ValidationError
 class Employee(models.Model):
     _name = 'employee'
 
-    avatar = fields.Binary(string='avatar')
+    avatar = fields.Binary(string='Avatar')
     name = fields.Char(string='Name', required=True)
     dob = fields.Date(string='Date of Birth')
     regency = fields.Selection(selection=[('manager', 'Manager'),

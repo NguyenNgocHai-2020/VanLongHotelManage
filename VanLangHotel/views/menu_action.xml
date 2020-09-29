@@ -30,16 +30,16 @@
         <field name="res_model">employee</field>
         <field name="view_mode">kanban,tree,form</field>
     </record>
-    <record model="ir.actions.act_window" id="customer_action_window">
+    <record id="customer_action_window" model="ir.actions.act_window">
         <field name="name">Customer</field>
         <field name="res_model">customer</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">kanban,tree,form</field>
     </record>
     <record id="booking_action" model="ir.actions.act_window">
         <field name="name">Bookings</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">booking</field>
-        <field name="view_mode">kanban,calendar,graph,pivot,tree,form</field>
+        <field name="view_mode">calendar,kanban,tree,graph,pivot,form</field>
     </record>
 
     <menuitem id="Van_Lang_Hotel" name="Văn Lang Hotel" sequence="1"/>

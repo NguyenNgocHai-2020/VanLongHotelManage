@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-    <data>
+    <data noupdate="1">
         <record id = 'promotion_1' model="promotion">
             <field name="name">Khai trương Khách sạn Văn Lang -30%</field>
             <field name="promotion">0.3</field>

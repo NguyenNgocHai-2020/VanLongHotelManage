@@ -71,7 +71,13 @@
                         </group>
                     </group>
                     <group string="Booking">
-                        <field name="booking_id"/>
+                        <field name="booking_id">
+                            <tree>
+                                <field name="booking_id"/>
+                                <field name="customer_id"/>
+                                <field name="state"/>
+                            </tree>
+                        </field>
                     </group>
                 </sheet>
             </form>

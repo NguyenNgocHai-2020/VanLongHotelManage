@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-    <data>
+    <data noupdate="1">
         <record id="customer_1" model="customer">
             <field name="cus_name">Vũ Tuấn Anh</field>
             <field name="card_id">115724851</field>

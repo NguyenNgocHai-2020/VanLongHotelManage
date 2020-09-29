@@ -6,7 +6,7 @@
         <field name="arch" type="xml">
             <tree string="Service View">
                 <field name="name"/>
-                <field name="price"/>
+                <field name="quantity"/>
             </tree>
         </field>
     </record>
@@ -19,7 +19,9 @@
                 <sheet>
                     <group string="Service Form">
                         <field name="name"/>
-                        <field name="price"/>
+                        <field name="quantity"/>
+<!--                        <field name="amount"/>-->
+<!--                        <field name="price"/>-->
                     </group>
                 </sheet>
             </form>

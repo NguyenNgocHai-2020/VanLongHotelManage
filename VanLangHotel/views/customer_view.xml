@@ -9,7 +9,7 @@
                 <field name="card_id"/>
                 <field name="phone_number"/>
                 <field name="address"/>
-                <field name="booking_ids"/>
+                <field name="booking_ids" widget="many2many_tags"/>
             </tree>
         </field>
     </record>
@@ -20,33 +20,68 @@
         <field name="arch" type="xml">
             <form>
                 <sheet>
+                     <div class="oe_button_box" name="button_box">
+                        <button name=" " type="action" class="oe_stat_button">
+                            <div class="o_form_field o_stat_info">
+                                <span class="o_stat_value">
+                                    <field name="booking_count"/>
+                                </span>
+                                <span class="o_stat_text">Booking</span>
+                            </div>
+                        </button>
+                         <button name=" " type="action" class="oe_stat_button">
+                            <div class="o_form_field o_stat_info">
+                                <span class="o_stat_value">
+                                    <field name="total_spending"/>
+                                </span>
+                                <span class="o_stat_text">Invoiced(VNĐ)</span>
+                            </div>
+                        </button>
+                    </div>
                     <group>
                         <field name="cus_name"/>
                         <field name="card_id"/>
                         <field name="phone_number"/>
                         <field name="address"/>
+                        <field name="total_spending"/>
                     </group>
                 </sheet>
             </form>
         </field>
     </record>
 
-<!--    <record id="customer_kanban_view" model="ir.ui.view">-->
-<!--        <field name="name">Customer Kanban</field>-->
-<!--        <field name="model">customer</field>-->
-<!--        <field name="arch" type="xml">-->
-<!--            <kanban default_order="id asc">-->
-<!--                <field name="name"/>-->
-<!--                <templates>-->
-<!--                    <t t-name="kanban-box">-->
-<!--                        <div t-attf-class="oe_kanban_global_click"></div>-->
-<!--                        -->
-
-<!--                    </t>-->
-<!--                </templates>-->
-<!--            </kanban>-->
-<!--        </field>-->
-<!--    </record>-->
+    <record id="customer_kanban_view" model="ir.ui.view">
+        <field name="name">Customer Kanban</field>
+        <field name="model">customer</field>
+        <field name="arch" type="xml">
+            <kanban default_order="id asc">
+                <field name="id"/>
+                <field name="cus_name"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <strong style="color:red;">
+                                    <field name="cus_name"/>
+                                </strong>
+                                <ul>
+                                    <li>Identity Card :
+                                        <field name="card_id"/>
+                                    </li>
+                                    <li>Phone :
+                                        <field name="phone_number"/>
+                                    </li>
+                                    <li>Address :
+                                        <field name="address"/>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
 
     <record id="customer_search_view" model="ir.ui.view">
         <field name="name">Customer Search</field>

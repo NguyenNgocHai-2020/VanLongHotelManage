@@ -18,16 +18,17 @@ class Booking(models.Model):
                                         ('paid', 'Paid')], string='State', default='draft')
     amount_adult = fields.Integer(string='Adult')
     amount_child = fields.Integer(string='Child ')
-    money_room = fields.Float(compute='_calculate_money_room', store=True)
-    service = fields.Many2many(comodel_name='service', string='Service')
+    service_order = fields.One2many(comodel_name='service_order', inverse_name='booking', string='Service')
     promotion = fields.Many2one(comodel_name='promotion', string='Promotion')
     room_ids = fields.Many2many(comodel_name='room', string='Rooms',
                                 required=True)
     room_count = fields.Integer(compute='_get_room_count', string='Room Count', store=True)
     note = fields.Text(string='Note')
     surcharge = fields.Float(string='Surcharge')
+    number_of_days_reserved = fields.Integer('Number of days reserved', compute='_calculate_number_of_days_reserved', store=True)
+    room_total = fields.Float(compute='_calculate_room_total', store=True)
     promotion_price = fields.Float(compute='_calculate_promotion_price', store=True)
-    sum_service = fields.Float(compute='_calculate_sum_service', store=True)
+    sum_service_order = fields.Float(compute='_calculate_sum_service_order', store=True)
     total_amount = fields.Float(compute='_calculate_total_amount', store=True)
 
     @api.onchange('room_ids')
@@ -37,6 +38,12 @@ class Booking(models.Model):
         result['domain'] = domain
         return result
 
+    @api.constrains('check_in', 'check_out')
+    def validate_check_out(self):
+        if self.check_out < self.check_in:
+            raise ValidationError("""The check out date must be less than the check in date! Please choose again""")
+
+
     @api.model
     def create(self, vals):
         vals['booking_id'] = self.env['ir.sequence'].next_by_code('BOOKING_SEQUENCE')
@@ -44,46 +51,50 @@ class Booking(models.Model):
 
     @api.depends('room_ids')
     def _get_room_count(self):
-        for room in self:
-            room.room_count = len(room.room_ids)
+        for booking in self:
+            booking.room_count = len(booking.room_ids)
 
     @api.depends('promotion')
     def _calculate_promotion_price(self):
         for booking in self:
             total = 0
             if booking.promotion:
-                total = booking.money_room * booking.promotion.promotion
+                total = booking.room_total * booking.promotion.promotion
             booking.promotion_price = total
 
-    @api.depends('service')
-    def _calculate_sum_service(self):
+    @api.depends('service_order')
+    def _calculate_sum_service_order(self):
         for booking in self:
             total = 0
-            if booking.service:
-                for service in booking.service:
+            if booking.service_order:
+                for service in booking.service_order:
                     total += service.price
-            booking.sum_service = total
+            booking.sum_service_order = total
 
-    @api.depends('room_ids.room_price', 'check_in', 'check_out')
-    def _calculate_money_room(self):
+    @api.depends('check_in', 'check_out')
+    def _calculate_number_of_days_reserved(self):
+        for booking in self:
+            if booking.check_in and booking.check_out:
+                number_day = str(booking.check_out - booking.check_in)
+                number_day = number_day[0:2]
+                number_day = int(number_day.strip())
+                booking.number_of_days_reserved = number_day
+
+    @api.depends('room_ids.room_price', 'number_of_days_reserved')
+    def _calculate_room_total(self):
         for booking in self:
             total = 0
             for room in booking.room_ids:
                 total += room.room_price
-            if booking.check_in and booking.check_out:
-                total_day = str(booking.check_out - booking.check_in)
-                total_day = int(total_day[0])
-                booking.money_room = total * total_day
-            else:
-                booking.money_room = total
+            booking.room_total = total * booking.number_of_days_reserved
 
-    @api.depends('promotion_price', 'sum_service', 'money_room', 'surcharge')
+    @api.depends('promotion_price', 'sum_service_order', 'room_total', 'surcharge')
     def _calculate_total_amount(self):
         for booking in self:
             if booking.surcharge:
-                booking.total_amount = booking.money_room + booking.sum_service - booking.promotion_price - booking.surcharge
+                booking.total_amount = booking.room_total + booking.sum_service_order - booking.promotion_price - booking.surcharge
             else:
-                booking.total_amount = booking.money_room + booking.sum_service - booking.promotion_price
+                booking.total_amount = booking.room_total + booking.sum_service_order - booking.promotion_price
 
     def booking(self):
         self.state = 'booking'

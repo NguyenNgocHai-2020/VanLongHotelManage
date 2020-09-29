@@ -52,14 +52,13 @@ class Rooms(models.Model):
     booking_id = fields.Many2many(comodel_name='booking', string='Booking')
     pictures = fields.One2many(comodel_name='picture', inverse_name='room_id', string='Image')
 
-
     @api.onchange('room_type')
     def get_default_price_room(self):
         if self.room_type == 'standard':
-            self.price_room = 1125936.68
+            self.room_price = 1125936.68
         elif self.room_type == 'superior':
-            self.price_room = 1414285.71
+            self.room_price = 1414285.71
         elif self.room_type == 'deluxe':
-            self.price_room = 3311688.31
+            self.room_price = 3311688.31
         else:
-            self.price_room = 4783549.78
+            self.room_price = 4783549.78
