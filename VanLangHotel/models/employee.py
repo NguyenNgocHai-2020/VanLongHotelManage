@@ -16,6 +16,7 @@ class Employee(models.Model):
     phone = fields.Char(string='Phone')
 
 
+
     @api.model
     def create(self, vals):
         if vals.get('name', False):

@@ -1,0 +1,40 @@
+<odoo>
+	<data>
+
+	    <record id="report_booking_form_view" model="ir.ui.view">
+			<field name="name">report.booking.form.view</field>
+			<field name="model">report.booking</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+		        <form string="Báo cáo">
+	                <group>
+		        		<group>
+		                    <field name="date_to"/>
+		                    <field name="date_from" />
+		                </group>
+		        	</group>
+
+	                <footer>
+	                    <button name="print_excel_report" string="Xuất Excel" type="object" class="oe_highlight"/> hoặc
+	                    <button string="Hủy" class="oe_link" special="cancel"/>
+	                </footer>
+
+		        </form>
+	    	</field>
+	    </record>
+
+	    <record id="report_booking_action_view" model="ir.actions.act_window">
+			<field name="name">Báo cáo doanh thu</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">report.booking</field>
+<!--			<field name="view_type">form</field>-->
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="report_booking_form_view"/>
+			<field name="target">new</field>
+	    </record>
+
+
+		<menuitem id="report_booking_menu_view" action="report_booking_action_view" parent="Van_Lang_Hotel"/>
+
+	</data>
+</odoo>

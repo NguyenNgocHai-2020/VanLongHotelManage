@@ -10,11 +10,14 @@
                             <h2 style="text-align: center">Số 68 - Đường Hùng Vương, Ba Đình, Hà Nội</h2>
                             <h2 style="text-align: center">SĐT:02466699999</h2>
                             <h2 style="text-align: center">Bill Pay</h2>
+                            <h3>Booking ID: <t t-esc="doc.booking_id"/></h3>
                             <h3>Customer: <t t-esc="cus.cus_name"/></h3>
                             <h4>Phone: <t t-esc="cus.phone_number"/></h4>
                             <h4>Address: <t t-esc="cus.address"/></h4>
+                            <h4>Check in: <t t-esc="doc.check_in"/></h4>
+                            <h4>Check out: <t t-esc="doc.check_out"/></h4>
                                 <table class="table table-condensed" width="450" height="600" >
-                                    <thead>
+                                    <thead> Description:
                                         <tr>
                                             <th>Distribute:</th>
                                             <th>Detail:</th>
@@ -38,20 +41,6 @@
                                             <td>
                                                 <t t-esc="doc.room_total"/>
                                             </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Adult: </td>
-                                            <td>
-                                                <t t-esc="doc.amount_adult"/>
-                                            </td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Children:</td>
-                                            <td>
-                                                <t t-esc="doc.amount_child"/>
-                                            </td>
-                                            <td></td>
                                         </tr>
                                         <tr t-foreach="doc.service_order" t-as="ser">
                                             <td>Service: </td>
@@ -105,6 +94,7 @@
                                         </tr>
                                     </tfoot>
                                 </table>
+
                         </div>
                     </t>
                 </t>
@@ -112,4 +102,3 @@
         </t>
     </template>
 </odoo>
-

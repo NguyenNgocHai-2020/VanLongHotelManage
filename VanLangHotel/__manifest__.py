@@ -28,9 +28,10 @@
         'data/employee_data_default.xml',
         'data/customer_data_default.xml',
         'data/room_data_default.xml',
-        # 'data/booking_data_default.xml',
-        'report/report_template.xml',
-        'report/hotel_report.xml',
+        'wizard/report_booking.xml',
+        'report/create_paper_bill.xml',
+        'report/return_booking.xml',
+
     ],
     'installable': True,
     'application': True,

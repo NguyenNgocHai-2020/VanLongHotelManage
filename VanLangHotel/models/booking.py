@@ -31,6 +31,10 @@ class Booking(models.Model):
     sum_service_order = fields.Float(compute='_calculate_sum_service_order', store=True)
     total_amount = fields.Float(compute='_calculate_total_amount', store=True)
 
+    _sql_constraints = [
+        ('booking_id_uniq', 'unique(booking_id)', 'Booking_id must be unique !'),
+    ]
+
     @api.onchange('room_ids')
     def onchange_room_ids(self):
         result = {}

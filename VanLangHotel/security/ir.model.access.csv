@@ -7,8 +7,8 @@ customer_access_picture,customer_access_picture,VanLangHotel.model_picture,VanLa
 employee_access_customer,employee_access_customer,VanLangHotel.model_customer,VanLangHotel.group_employee_user,1,1,1,0
 employee_access_booking,employee_access_booking,VanLangHotel.model_booking,VanLangHotel.group_employee_user,1,1,1,0
 employee_access_promotion,employee_access_promotion,VanLangHotel.model_promotion,VanLangHotel.group_employee_user,1,0,0,0
-employee_access_service,employee_access_service,VanLangHotel.model_service,VanLangHotel.group_employee_user,1,0,0,0
-employee_access_room,employee_access_room,VanLangHotel.model_room,VanLangHotel.group_employee_user,1,0,0,0
+employee_access_service,employee_access_service,VanLangHotel.model_service,VanLangHotel.group_employee_user,1,1,0,0
+employee_access_room,employee_access_room,VanLangHotel.model_room,VanLangHotel.group_employee_user,1,1,1,0
 employee_access_picture,employee_access_picture,VanLangHotel.model_picture,VanLangHotel.group_employee_user,1,1,1,0
 manager_access_booking,manager_access_booking,VanLangHotel.model_booking,VanLangHotel.group_employee_manager,1,1,1,1
 manager_access_room,manager_access_room,VanLangHotel.model_room,VanLangHotel.group_employee_manager,1,1,1,1
@@ -16,6 +16,8 @@ manager_access_promotion,manager_access_promotion,VanLangHotel.model_promotion,V
 manager_access_service,manager_access_service,VanLangHotel.model_service,VanLangHotel.group_employee_manager,1,1,1,1
 manager_access_employee,manager_access_employee,VanLangHotel.model_employee,VanLangHotel.group_employee_manager,1,1,1,1
 manager_access_picture,manager_access_picture,VanLangHotel.model_picture,VanLangHotel.group_employee_manager,1,1,1,1
+employee_access_serVice_order,employee_access_serVice_order,VanLangHotel.model_service_order,VanLangHotel.group_employee_user,1,1,1,1
+manager_access_serVice_order,manager_access_serVice_order,VanLangHotel.model_service_order,VanLangHotel.group_employee_manager,1,1,1,1
 
 
 
