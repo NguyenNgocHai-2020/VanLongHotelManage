@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="booking_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.internal_layout">
+                    <div class="page" style="font-family:Times New Roman">
+                        <h3 style="text-align: center" class="font-weight-bold">VAN LANG HOTEL</h3>
+                        <h3 style="text-align: center">Số 68 - Đường Hùng Vương, Ba Đình, Hà Nội</h3>
+                        <h3 style="text-align: center">SĐT:02466699999</h3>
+                        <h1 style="text-align: center">Bill Pay</h1>
+                    </div>
+                    <div class="page" style="margin-top:5px;">
+                        <div class="row">
+                            <t t-foreach="doc.customer_id" t-as="cus">
+                                <div class="col-12" style="text-align: left">
+                                    <div>
+                                        <span>Khách hàng :
+                                            <span class="ml-4" t-field="cus.cus_name"/>
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <span>Identity card :
+                                            <span class="ml-4" t-field="cus.card_id"/>
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <span>Số điện thoại :
+                                            <span class="ml-4" t-field="cus.phone_number"/>
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <span>Địa chỉ :
+                                            <span class="ml-4" t-field="cus.address"/>
+                                        </span>
+                                    </div>
+                                </div>
+                            </t>
+                            <div class="col-12" style="text-align: right">
+                                <div>
+                                    <span>Nhân viên tạo hóa đơn :
+                                        <span class="ml-4" t-field="doc.create_uid"/>
+                                    </span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <table class="table table-condensed" width="450" height="600">
+                        <thead>Description:
+                            <tr>
+                                <th>Distribute:</th>
+                                <th>Detail:</th>
+                                <th>Quantity:</th>
+                                <th>Number of days reserved:</th>
+                                <th>Price:</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="doc.room_ids" t-as="ros">
+                                <td>Room:</td>
+                                <td>
+                                    <t t-esc="ros.room_code"/>
+                                </td>
+                                <td>
+                                    <t t-esc="ros.room_price"/>
+                                </td>
+                                <td>
+                                    <t t-esc="doc.number_of_days_reserved"/>
+                                </td>
+                                <td>
+                                    <t t-esc="doc.room_total"/>
+                                </td>
+                            </tr>
+                            <tr t-foreach="doc.service_order" t-as="ser">
+                                <td>Service:</td>
+                                <td>
+                                    <t t-esc="ser.name"/>
+                                </td>
+                                <td>
+                                    <t t-esc="ser.quantity"/>
+                                </td>
+                                <td>
+                                    <t t-esc="ser.amount"/>
+                                </td>
+                                <td>
+                                    <t t-esc="ser.price"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="container">
+                        <div class="page" style="float: left">
+                            <div style="text-align: center">
+                                <span>Khách hàng:</span>
+                                <br/>
+                                <span>(ký và ghi rõ họ tên)</span>
+                            </div>
+                        </div>
+                        <div class="page" style="float: right">
+                            <tr>
+                                <td colspan="3" style="text-align: center">
+                                    <h3>Tổng :</h3>
+                                </td>
+                            </tr>
+                            <table border="0">
+                                <tr>
+                                    <td colspan="2" style="text-align:left">Tiền phòng :</td>
+                                    <td style="text-align:right">
+                                        <t t-esc="doc.room_total"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="text-align: right">Tiền dịch vụ:</td>
+                                    <td>
+                                        <t t-esc="doc.sum_service_order"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="text-align: right">Giảm giá:</td>
+                                    <td>
+                                        <t t-esc="doc.promotion_price"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="text-align: right">Phụ thu:</td>
+                                    <td>
+                                        <t t-esc="doc.surcharge"/>
+                                    </td>
+                                </tr>
+                            </table>
+                            <div>
+                                <hr width="70%" size="10px" align="center"/>
+                                <span>
+                                    <b>Thành tiền</b>
+                                    :
+                                    <span class="font-weight-bold" t-field="doc.total_amount"/>
+                                    VNĐ
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <div class="page" style="text-align: center">
+                        <span>Cảm ơn vì đã sử dụng dịch vụ của Văn Lang Hotel</span>
+                        <br/>
+                        <span>Hẹn gặp lại quý khách</span>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>
