@@ -30,7 +30,7 @@
         'data/room_data_default.xml',
         'wizard/report_booking.xml',
         'report/create_paper_bill.xml',
-        'report/return_booking.xml',
+        'report/return_booking_order.xml',
 
     ],
     'installable': True,
