@@ -16,7 +16,7 @@ class Service_Order(models.Model):
     quantity = fields.Float(related='service_id.quantity')
     amount = fields.Integer(string='Amount', default=1)
     price = fields.Float('Price', compute='_calculate_price_service', store=True)
-    booking = fields.Many2one(comodel_name='booking', string='Booking')
+    booking_id = fields.Many2one(comodel_name='booking', string='Booking')
 
     @api.depends('service_id.quantity', 'amount')
     def _calculate_price_service(self):

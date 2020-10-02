@@ -1,36 +1,15 @@
 from odoo import api, fields, models
 from datetime import date
 from odoo.exceptions import UserError, ValidationError
+from ast import literal_eval
 
 
 class Employee(models.Model):
-    _name = 'employee'
+    _inherit = 'res.users'
 
-    avatar = fields.Binary(string='Avatar')
-    name = fields.Char(string='Name', required=True)
-    dob = fields.Date(string='Date of Birth')
+    dob = fields.Date(string='Date')
     regency = fields.Selection(selection=[('manager', 'Manager'),
                                           ('receptionist', 'Receptionist'),
                                           ('housekeeping', 'Housekeeping')], string='Position')
-    address = fields.Char(string='Address')
-    phone = fields.Char(string='Phone')
+    booking_ids = fields.One2many(comodel_name='booking', inverse_name='employee_id')
 
-
-
-    @api.model
-    def create(self, vals):
-        if vals.get('name', False):
-            vals['name'] = vals['name'].title()
-        res = super(Employee, self).create(vals)
-        return res
-
-    def write(self, vals):
-        if vals.get('name', False):
-            vals['name'] = vals['name'].title()
-        res = super(Employee, self).write(vals)
-        return res
-
-    @api.constrains('phone')
-    def validate_phone(self):
-        if not self.phone or len(self.phone) > 10 or len(self.phone) < 10:
-            raise ValidationError('You must define the phone number consisting of 10 characters.')

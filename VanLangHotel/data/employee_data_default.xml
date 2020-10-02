@@ -1,75 +1,95 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     <data noupdate="1">
-        <record id="employee_1" model="employee">
+        <record id="employee_1" model="res.users">
             <field name="name">Trần Cẩm Tú</field>
+            <field name="login">cam_tu_manager</field>
+            <field name="password">1</field>
             <field name="dob">1989-12-8</field>
             <field name="regency">manager</field>
-            <field name="address">Đội Cấn,Ba Đình, Hà Nội</field>
-            <field name="phone">0928044308</field>
+<!--            <field name="address">Đội Cấn,Ba Đình, Hà Nội</field>-->
+            <field name="mobile">0928044308</field>
         </record>
-        <record id="employee_2" model="employee">
+        <record id="employee_2" model="res.users">
             <field name="name">Lê Hoàng Nam</field>
+            <field name="login">hoang_nam_manager</field>
+            <field name="password">1</field>
             <field name="dob">1985-4-26</field>
             <field name="regency">manager</field>
-            <field name="address">Hàng Đào,Hoàn Kiếm, Hà Nội</field>
-            <field name="phone">0335936397</field>
+<!--            <field name="address">Hàng Đào,Hoàn Kiếm, Hà Nội</field>-->
+            <field name="mobile">0335936397</field>
         </record>
-        <record id="employee_3" model="employee">
+        <record id="employee_3" model="res.users">
             <field name="name">Nguyễn Thị Trâm Anh</field>
+            <field name="login">tram_anh_receptionist</field>
+            <field name="password">1</field>
             <field name="dob">1992-8-30</field>
             <field name="regency">receptionist</field>
-            <field name="address">Ngô Quyền, Hoàn Kiếm, Hà Nội</field>
-            <field name="phone">0968076452</field>
+<!--            <field name="address">Ngô Quyền, Hoàn Kiếm, Hà Nội</field>-->
+            <field name="mobile">0968076452</field>
         </record>
-        <record id="employee_4" model="employee">
+        <record id="employee_4" model="res.users">
             <field name="name">Võ Chí Công</field>
+            <field name="login">chi_cong_receptionist</field>
+            <field name="password">1</field>
             <field name="dob">1995-9-12</field>
             <field name="regency">receptionist</field>
-            <field name="address">Giảng Võ, Đống Đa, Hà Nội</field>
-            <field name="phone">0928044308</field>
+<!--            <field name="address">Giảng Võ, Đống Đa, Hà Nội</field>-->
+            <field name="mobile">0928044308</field>
         </record>
-        <record id="employee_5" model="employee">
+        <record id="employee_5" model="res.users">
             <field name="name">Lương Thị Thương Thương</field>
+            <field name="login">thuong_thuong_receptionist</field>
+            <field name="password">1</field>
             <field name="dob">1995-12-8</field>
             <field name="regency">receptionist</field>
-            <field name="address">Hoàng Hoa Thám, Ba Đình, Hà Nội</field>
-            <field name="phone">0966645194</field>
+<!--            <field name="address">Hoàng Hoa Thám, Ba Đình, Hà Nội</field>-->
+            <field name="mobile">0966645194</field>
         </record>
-        <record id="employee_6" model="employee">
+        <record id="employee_6" model="res.users">
             <field name="name">Nguyễn Thị Hằng</field>
+            <field name="login">my_hang_housekeeping</field>
+            <field name="password">1</field>
             <field name="dob">1988-6-20</field>
             <field name="regency">housekeeping</field>
-            <field name="address">Thái Thịnh, Đống Đa, Hà Nội</field>
-            <field name="phone">0375446846</field>
+<!--            <field name="address">Thái Thịnh, Đống Đa, Hà Nội</field>-->
+            <field name="mobile">0375446846</field>
         </record>
-        <record id="employee_7" model="employee">
+        <record id="employee_7" model="res.users">
             <field name="name">Vũ Huỳnh Phi</field>
+            <field name="login">huynh_phi_housekeeping</field>
+            <field name="password">1</field>
             <field name="dob">1996-3-21</field>
             <field name="regency">housekeeping</field>
-            <field name="address">Kim Mã, Ba Đình, Hà Nội</field>
-            <field name="phone">0912144462</field>
+<!--            <field name="address">Kim Mã, Ba Đình, Hà Nội</field>-->
+            <field name="mobile">0912144462</field>
         </record>
-        <record id="employee_8" model="employee">
+        <record id="employee_8" model="res.users">
             <field name="name">Nguyễn Thị Hạnh</field>
+            <field name="login">nguyen_hanh_housekeeping</field>
+            <field name="password">1</field>
             <field name="dob">1991-8-12</field>
             <field name="regency">housekeeping</field>
-            <field name="address">Thái Thịnh, Đống Đa, Hà Nội</field>
-            <field name="phone">0312144462</field>
+<!--            <field name="address">Thái Thịnh, Đống Đa, Hà Nội</field>-->
+            <field name="mobile">0312144462</field>
         </record>
-        <record id="employee_9" model="employee">
+        <record id="employee_9" model="res.users">
             <field name="name">Nguyễn Thị Cẩm Lệ</field>
+            <field name="login">cam_le_housekeeping</field>
+            <field name="password">1</field>
             <field name="dob">1997-11-24</field>
             <field name="regency">housekeeping</field>
-            <field name="address">Nguyễn Văn Cừ, Long Biên, Hà Nội</field>
-            <field name="phone">0351978907</field>
+<!--            <field name="address">Nguyễn Văn Cừ, Long Biên, Hà Nội</field>-->
+            <field name="mobile">0351978907</field>
         </record>
-        <record id="employee_10" model="employee">
+        <record id="employee_10" model="res.users">
             <field name="name">Nguyễn Hữu Hoàn</field>
+            <field name="login">huu_hoan_housekeeping</field>
+            <field name="password">1</field>
             <field name="dob">1997-6-29</field>
             <field name="regency">housekeeping</field>
-            <field name="address">Thụy Khuê, Ba Đình, Hà Nội</field>
-            <field name="phone">0372345400</field>
+<!--            <field name="address">Thụy Khuê, Ba Đình, Hà Nội</field>-->
+            <field name="mobile">0372345400</field>
         </record>
 
     </data>

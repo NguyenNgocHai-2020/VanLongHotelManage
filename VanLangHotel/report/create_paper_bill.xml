@@ -3,7 +3,7 @@
     <report id="booking_report"
             name="VanLangHotel.booking_template"
             model="booking"
-            string="Bill Booking"
+            string="Payment Receipt"
             report_type="qweb-html"/>
 
 <!--    <record id="paperformat_booking" model="report.paperformat">-->

@@ -1,91 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <record id="employee_tree_view" model="ir.ui.view">
-        <field name="name">Employee Tree</field>
-        <field name="model">employee</field>
+        <field name="name">Employee</field>
+        <field name="model">res.users</field>
         <field name="arch" type="xml">
             <tree>
                 <field name="name"/>
-                <field name="dob"/>
+                <field name="email"/>
                 <field name="regency"/>
-                <field name="address"/>
-                <field name="phone"/>
+                <field name="mobile"/>
             </tree>
         </field>
     </record>
-
     <record id="employee_form_view" model="ir.ui.view">
-        <field name="name">Employee Form</field>
-        <field name="model">employee</field>
+        <field name="name">Employee</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_simple_form"/>
         <field name="arch" type="xml">
-            <form>
-                <sheet>
-                    <group>
-                        <field name="avatar"/>
-                        <field name="name"/>
-                        <field name="dob"/>
-                        <field name="regency"/>
-                        <field name="address"/>
-                        <field name="phone"/>
-                    </group>
-                </sheet>
-            </form>
-        </field>
-    </record>
-
-
-    <record id="Employee_kanban_view" model="ir.ui.view">
-        <field name="name">Kanban_view</field>
-        <field name="model">employee</field>
-        <field name="arch" type="xml">
-            <kanban default_order="id asc">
-                <field name="id"/>
-                <field name="avatar"/>
-                <templates>
-                    <t t-name="kanban-box">
-                        <div t-attf-class="oe_kanban_global_click">
-                            <div class="o_kanban_image">
-                                <img t-att-src="kanban_image('employee','avatar',record.id.raw_value)" alt="Avatar"/>
-                            </div>
-                            <div class="oe_kanban_details">
-                                    <strong style="color:red;">
-                                        <field name="name"/>
-                                    </strong>
-                                    <div>
-                                        <ul>
-                                            <li>Regency:
-                                                <field name="regency"/>
-                                            </li>
-                                            <li>Address:
-                                                <field name="address"/>
-                                            </li>
-                                            <li>Phone:
-                                                <field name="phone"/>
-                                            </li>
-                                        </ul>
-                                    </div>
-                            </div>
-                        </div>
-                    </t>
-                </templates>
-            </kanban>
-        </field>
-    </record>
-
-    <record id="employee_search_view" model="ir.ui.view">
-        <field name="name">Employee Search</field>
-        <field name="model">employee</field>
-        <field name="arch" type="xml">
-            <search>
-                <field name="name"/>
-                <field name="address"/>
-                <field name="phone"/>
-                <group expand="1" string="Group By...">
-                    <filter string="Group name" name="group_name" context="{'group_by': 'name'}"/>
-                    <filter string="Group address" name="group_address" context="{'group_by': 'address'}"/>
-                    <filter string="Group phone" name="group_phone" context="{'group_by': 'phone'}"/>
+            <xpath expr="/form/sheet/group" position="replace">
+                <group>
+                    <field name="password"/>
+                    <field name="dob"/>
+                    <field name="regency"/>
+                    <field name="mobile"/>
+                    <field name="groups_id"/>
                 </group>
-            </search>
+            </xpath>
         </field>
     </record>
+
 </odoo>

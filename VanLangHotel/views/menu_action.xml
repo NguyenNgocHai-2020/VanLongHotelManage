@@ -24,11 +24,10 @@
         <field name="res_model">room</field>
         <field name="view_mode">kanban,tree,form</field>
     </record>
-    <record id="employee_action_view" model="ir.actions.act_window">
+    <record id="employee_action_window" model="ir.actions.act_window">
         <field name="name">Employee</field>
-        <field name="type">ir.actions.act_window</field>
-        <field name="res_model">employee</field>
-        <field name="view_mode">kanban,tree,form</field>
+        <field name="res_model">res.users</field>
+        <field name="view_mode">kanban,tree,search,form,graph</field>
     </record>
     <record id="customer_action_window" model="ir.actions.act_window">
         <field name="name">Customer</field>
@@ -46,7 +45,7 @@
     <menuitem id="room_menu_item" name="Rooms" parent="Van_Lang_Hotel" action="rooms_action"/>
     <menuitem id="customer_menu_item" name="Customers" parent="Van_Lang_Hotel" action="customer_action_window"/>
     <menuitem id="booking_menu_item" name="Bookings" parent="Van_Lang_Hotel" action="booking_action"/>
-    <menuitem id="employee_action_menu" name="Employee" parent="Van_Lang_Hotel" action="employee_action_view" />
+    <menuitem id="employee_menu_action" name="Employee" parent="Van_Lang_Hotel" action="employee_action_window"/>
     <menuitem id="service_menu_item" name="Service" parent="Van_Lang_Hotel" action="service_action"/>
     <menuitem id="promotion_menu_item" name="Promotion" parent="Van_Lang_Hotel" action="promotion_action"/>
     <menuitem id="picture_menu_item" name="Picture" parent="Van_Lang_Hotel" action="picture_action"/>

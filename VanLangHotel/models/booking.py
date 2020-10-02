@@ -18,7 +18,7 @@ class Booking(models.Model):
                                         ('paid', 'Paid')], string='State', default='draft')
     amount_adult = fields.Integer(string='Adult')
     amount_child = fields.Integer(string='Child ')
-    service_order = fields.One2many(comodel_name='service_order', inverse_name='booking', string='Service')
+    service_order = fields.One2many(comodel_name='service_order', inverse_name='booking_id', string='Service')
     promotion = fields.Many2one(comodel_name='promotion', string='Promotion')
     room_ids = fields.Many2many(comodel_name='room', string='Rooms',
                                 required=True)
@@ -30,6 +30,7 @@ class Booking(models.Model):
     promotion_price = fields.Float(compute='_calculate_promotion_price', store=True)
     sum_service_order = fields.Float(compute='_calculate_sum_service_order', store=True)
     total_amount = fields.Float(compute='_calculate_total_amount', store=True)
+    employee_id = fields.Many2one(comodel_name='employee')
 
     _sql_constraints = [
         ('booking_id_uniq', 'unique(booking_id)', 'Booking_id must be unique !'),
