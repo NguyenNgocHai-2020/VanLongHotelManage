@@ -25,7 +25,8 @@ class Booking(models.Model):
     room_count = fields.Integer(compute='_get_room_count', string='Room Count', store=True)
     note = fields.Text(string='Note')
     surcharge = fields.Float(string='Surcharge')
-    number_of_days_reserved = fields.Integer('Number of days reserved', compute='_calculate_number_of_days_reserved', store=True)
+    number_of_days_reserved = fields.Integer('Number of days reserved', compute='_calculate_number_of_days_reserved',
+                                             store=True)
     room_total = fields.Float(compute='_calculate_room_total', store=True)
     promotion_price = fields.Float(compute='_calculate_promotion_price', store=True)
     sum_service_order = fields.Float(compute='_calculate_sum_service_order', store=True)
@@ -47,7 +48,6 @@ class Booking(models.Model):
     def validate_check_out(self):
         if self.check_out < self.check_in:
             raise ValidationError("""The check out date must be less than the check in date! Please choose again""")
-
 
     @api.model
     def create(self, vals):

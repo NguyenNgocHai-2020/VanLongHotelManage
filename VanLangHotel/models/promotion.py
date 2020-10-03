@@ -10,4 +10,3 @@ class Promotion(models.Model):
     start_date = fields.Date(string='Start Date')
     expiration_date = fields.Date(string='Expiration Date')
     booking_ids = fields.One2many(comodel_name='booking', inverse_name='promotion', string='booking_ids')
-

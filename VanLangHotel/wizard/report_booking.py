@@ -13,7 +13,11 @@ class ReportBooking(models.TransientModel):
 
     @api.model
     def get_default_date_model(self):
-        return datetime.now()
+        day = datetime.now()
+        VN_TZ = pytz.timezone('Asia/Ho_Chi_Minh')
+        date_time_vntz_now = day.astimezone(VN_TZ)
+        return date_time_vntz_now
+
 
     datas = fields.Binary('File', readonly=True)
     datas_fname = fields.Char('Filename', readonly=True)

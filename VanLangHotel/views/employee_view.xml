@@ -6,7 +6,7 @@
         <field name="arch" type="xml">
             <tree>
                 <field name="name"/>
-                <field name="email"/>
+                <field name="login"/>
                 <field name="regency"/>
                 <field name="mobile"/>
             </tree>
@@ -23,6 +23,7 @@
                     <field name="dob"/>
                     <field name="regency"/>
                     <field name="mobile"/>
+                    <field name="street"/>
                     <field name="groups_id"/>
                 </group>
             </xpath>

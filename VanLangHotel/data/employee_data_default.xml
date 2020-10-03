@@ -7,7 +7,7 @@
             <field name="password">1</field>
             <field name="dob">1989-12-8</field>
             <field name="regency">manager</field>
-<!--            <field name="address">Đội Cấn,Ba Đình, Hà Nội</field>-->
+            <field name="street">Đội Cấn,Ba Đình, Hà Nội</field>
             <field name="mobile">0928044308</field>
         </record>
         <record id="employee_2" model="res.users">
@@ -16,7 +16,7 @@
             <field name="password">1</field>
             <field name="dob">1985-4-26</field>
             <field name="regency">manager</field>
-<!--            <field name="address">Hàng Đào,Hoàn Kiếm, Hà Nội</field>-->
+            <field name="street">Hàng Đào,Hoàn Kiếm, Hà Nội</field>
             <field name="mobile">0335936397</field>
         </record>
         <record id="employee_3" model="res.users">
@@ -25,7 +25,7 @@
             <field name="password">1</field>
             <field name="dob">1992-8-30</field>
             <field name="regency">receptionist</field>
-<!--            <field name="address">Ngô Quyền, Hoàn Kiếm, Hà Nội</field>-->
+            <field name="street">Ngô Quyền, Hoàn Kiếm, Hà Nội</field>
             <field name="mobile">0968076452</field>
         </record>
         <record id="employee_4" model="res.users">
@@ -34,7 +34,7 @@
             <field name="password">1</field>
             <field name="dob">1995-9-12</field>
             <field name="regency">receptionist</field>
-<!--            <field name="address">Giảng Võ, Đống Đa, Hà Nội</field>-->
+            <field name="street">Giảng Võ, Đống Đa, Hà Nội</field>
             <field name="mobile">0928044308</field>
         </record>
         <record id="employee_5" model="res.users">
@@ -43,7 +43,7 @@
             <field name="password">1</field>
             <field name="dob">1995-12-8</field>
             <field name="regency">receptionist</field>
-<!--            <field name="address">Hoàng Hoa Thám, Ba Đình, Hà Nội</field>-->
+            <field name="street">Hoàng Hoa Thám, Ba Đình, Hà Nội</field>
             <field name="mobile">0966645194</field>
         </record>
         <record id="employee_6" model="res.users">
@@ -52,7 +52,7 @@
             <field name="password">1</field>
             <field name="dob">1988-6-20</field>
             <field name="regency">housekeeping</field>
-<!--            <field name="address">Thái Thịnh, Đống Đa, Hà Nội</field>-->
+            <field name="street">Thái Thịnh, Đống Đa, Hà Nội</field>
             <field name="mobile">0375446846</field>
         </record>
         <record id="employee_7" model="res.users">
@@ -61,7 +61,7 @@
             <field name="password">1</field>
             <field name="dob">1996-3-21</field>
             <field name="regency">housekeeping</field>
-<!--            <field name="address">Kim Mã, Ba Đình, Hà Nội</field>-->
+            <field name="street">Kim Mã, Ba Đình, Hà Nội</field>
             <field name="mobile">0912144462</field>
         </record>
         <record id="employee_8" model="res.users">
@@ -70,7 +70,7 @@
             <field name="password">1</field>
             <field name="dob">1991-8-12</field>
             <field name="regency">housekeeping</field>
-<!--            <field name="address">Thái Thịnh, Đống Đa, Hà Nội</field>-->
+            <field name="street">Thái Thịnh, Đống Đa, Hà Nội</field>
             <field name="mobile">0312144462</field>
         </record>
         <record id="employee_9" model="res.users">
@@ -79,7 +79,7 @@
             <field name="password">1</field>
             <field name="dob">1997-11-24</field>
             <field name="regency">housekeeping</field>
-<!--            <field name="address">Nguyễn Văn Cừ, Long Biên, Hà Nội</field>-->
+            <field name="street">Nguyễn Văn Cừ, Long Biên, Hà Nội</field>
             <field name="mobile">0351978907</field>
         </record>
         <record id="employee_10" model="res.users">
@@ -88,7 +88,7 @@
             <field name="password">1</field>
             <field name="dob">1997-6-29</field>
             <field name="regency">housekeeping</field>
-<!--            <field name="address">Thụy Khuê, Ba Đình, Hà Nội</field>-->
+            <field name="street">Thụy Khuê, Ba Đình, Hà Nội</field>
             <field name="mobile">0372345400</field>
         </record>
 
