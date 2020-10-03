@@ -3,7 +3,7 @@
     <data noupdate="1">
         <record id="employee_1" model="res.users">
             <field name="name">Trần Cẩm Tú</field>
-            <field name="login">cam_tu_manager</field>
+            <field name="login">trancamtu_manager_vlh@gmail.com</field>
             <field name="password">1</field>
             <field name="dob">1989-12-8</field>
             <field name="regency">manager</field>
@@ -12,7 +12,7 @@
         </record>
         <record id="employee_2" model="res.users">
             <field name="name">Lê Hoàng Nam</field>
-            <field name="login">hoang_nam_manager</field>
+            <field name="login">le_hoang_nam_manager_vlh@gmail.com</field>
             <field name="password">1</field>
             <field name="dob">1985-4-26</field>
             <field name="regency">manager</field>
@@ -21,7 +21,7 @@
         </record>
         <record id="employee_3" model="res.users">
             <field name="name">Nguyễn Thị Trâm Anh</field>
-            <field name="login">tram_anh_receptionist</field>
+            <field name="login">tram_anh_receptionist_vlh@gmail.com</field>
             <field name="password">1</field>
             <field name="dob">1992-8-30</field>
             <field name="regency">receptionist</field>
@@ -30,7 +30,7 @@
         </record>
         <record id="employee_4" model="res.users">
             <field name="name">Võ Chí Công</field>
-            <field name="login">chi_cong_receptionist</field>
+            <field name="login">chi_cong_receptionist_vlh@gmail.com</field>
             <field name="password">1</field>
             <field name="dob">1995-9-12</field>
             <field name="regency">receptionist</field>
@@ -39,7 +39,7 @@
         </record>
         <record id="employee_5" model="res.users">
             <field name="name">Lương Thị Thương Thương</field>
-            <field name="login">thuong_thuong_receptionist</field>
+            <field name="login">thuong_thuong_receptionist_vlh@gmail.com</field>
             <field name="password">1</field>
             <field name="dob">1995-12-8</field>
             <field name="regency">receptionist</field>
@@ -48,7 +48,7 @@
         </record>
         <record id="employee_6" model="res.users">
             <field name="name">Nguyễn Thị Hằng</field>
-            <field name="login">my_hang_housekeeping</field>
+            <field name="login">my_hang_housekeeping_vlh@gmail.com</field>
             <field name="password">1</field>
             <field name="dob">1988-6-20</field>
             <field name="regency">housekeeping</field>
@@ -57,7 +57,7 @@
         </record>
         <record id="employee_7" model="res.users">
             <field name="name">Vũ Huỳnh Phi</field>
-            <field name="login">huynh_phi_housekeeping</field>
+            <field name="login">huynhphi_housekeeping_vlh@gmail.com</field>
             <field name="password">1</field>
             <field name="dob">1996-3-21</field>
             <field name="regency">housekeeping</field>
@@ -66,7 +66,7 @@
         </record>
         <record id="employee_8" model="res.users">
             <field name="name">Nguyễn Thị Hạnh</field>
-            <field name="login">nguyen_hanh_housekeeping</field>
+            <field name="login">nguyenhanh_housekeeping_vlh@gmail.com</field>
             <field name="password">1</field>
             <field name="dob">1991-8-12</field>
             <field name="regency">housekeeping</field>
@@ -75,7 +75,7 @@
         </record>
         <record id="employee_9" model="res.users">
             <field name="name">Nguyễn Thị Cẩm Lệ</field>
-            <field name="login">cam_le_housekeeping</field>
+            <field name="login">cam_le_housekeeping_vlh@gmail.com</field>
             <field name="password">1</field>
             <field name="dob">1997-11-24</field>
             <field name="regency">housekeeping</field>
@@ -84,7 +84,7 @@
         </record>
         <record id="employee_10" model="res.users">
             <field name="name">Nguyễn Hữu Hoàn</field>
-            <field name="login">huu_hoan_housekeeping</field>
+            <field name="login">huu_hoan_housekeeping_vlh@gmail.com</field>
             <field name="password">1</field>
             <field name="dob">1997-6-29</field>
             <field name="regency">housekeeping</field>
