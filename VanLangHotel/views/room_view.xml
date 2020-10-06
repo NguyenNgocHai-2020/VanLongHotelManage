@@ -21,7 +21,7 @@
             <form string="Rooms">
                 <sheet>
                     <group string="Information">
-                        <field name="room_avatar" widget="image" width="50px" height="200px"/>
+                         <field name="room_avatar" widget="image" class="oe_right oe_avatar"/>
                         <field name="room_code"/>
                         <field name="room_type"/>
                         <field name="room_state"/>
@@ -59,10 +59,9 @@
                             <field name="Shower"/>
                             <field name="Bathtub"/>
                             <field name="Bathrobe"/>
-                            <field name="Shower"/>
+                            <field name="Slippers"/>
                         </group>
                         <group>
-                            <field name="Slippers"/>
                             <field name="Living_room"/>
                             <field name="Parking"/>
                             <field name="coffee_tea"/>

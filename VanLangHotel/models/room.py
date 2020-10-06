@@ -5,7 +5,7 @@ class Rooms(models.Model):
     _name = 'room'
     _rec_name = 'room_code'
 
-    room_avatar = fields.Binary(string='Image')
+    room_avatar = fields.Binary()
     room_code = fields.Char(string='Room ID', required=True)
     room_type = fields.Selection(selection=[('standard', 'Standard'),
                                             ('superior', 'Superior'),
@@ -50,7 +50,20 @@ class Rooms(models.Model):
     extra_persons_allowed = fields.Boolean('Maximum extra persons allowed')
 
     booking_id = fields.Many2many(comodel_name='booking', string='Booking')
-    pictures = fields.Many2many(comodel_name='picture',  string='Image')
+    pictures = fields.Many2many(comodel_name='picture', string='Image')
+
+    @api.model
+    def create(self, vals):
+        if vals.get('room_code', False):
+            vals['room_code'] = 'VLH' + vals['room_code']
+        res = super(Rooms, self).create(vals)
+        return res
+
+    def write(self, vals):
+        if vals.get('room_code', False):
+            vals['room_code'] = 'VLH' + vals['room_code']
+        res = super(Rooms, self).write(vals)
+        return res
 
     @api.onchange('room_type')
     def get_default_price_room(self):
@@ -62,3 +75,6 @@ class Rooms(models.Model):
             self.room_price = 3311688.31
         else:
             self.room_price = 4783549.78
+
+
+

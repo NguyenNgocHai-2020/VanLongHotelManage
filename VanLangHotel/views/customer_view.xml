@@ -34,7 +34,7 @@
                                 <span class="o_stat_value">
                                     <field name="total_spending"/>
                                 </span>
-                                <span class="o_stat_text">Invoiced(VNĐ)</span>
+                                <span class="o_stat_text">AE(VNĐ)</span>
                             </div>
                         </button>
                     </div>
@@ -43,7 +43,7 @@
                         <field name="card_id"/>
                         <field name="phone_number"/>
                         <field name="address"/>
-                        <field name="total_spending"/>
+<!--                        <field name="total_spending"/>-->
                     </group>
                 </sheet>
             </form>
