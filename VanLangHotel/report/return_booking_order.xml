@@ -66,6 +66,7 @@
                                     <t t-esc="ros.room_price"/>
                                 </td>
                                 <td>
+
                                     <t t-esc="doc.number_of_days_reserved"/>
                                 </td>
                                 <td>

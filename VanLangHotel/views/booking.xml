@@ -78,7 +78,7 @@
                     <notebook>
                         <page string="Room">
                             <group>
-                                <field name="room_ids" widget="many2many">
+                                <field name="room_ids" widget="many2many" domain="[('room_state', '=', 'available')]">
                                     <tree>
                                         <field name='room_avatar' widget="image" width="50px" height="200px"/>
                                         <field name='room_code'/>

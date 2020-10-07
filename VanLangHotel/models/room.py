@@ -55,13 +55,21 @@ class Rooms(models.Model):
     @api.model
     def create(self, vals):
         if vals.get('room_code', False):
-            vals['room_code'] = 'VLH' + vals['room_code']
+            new = ""
+            for i in vals['room_code']:
+                if i.isnumeric():
+                    new += i
+            vals['room_code'] = 'VLH' + new
         res = super(Rooms, self).create(vals)
         return res
 
     def write(self, vals):
         if vals.get('room_code', False):
-            vals['room_code'] = 'VLH' + vals['room_code']
+            new = ""
+            for i in vals['room_code']:
+                if i.isnumeric():
+                    new += i
+            vals['room_code'] = 'VLH' + new
         res = super(Rooms, self).write(vals)
         return res
 

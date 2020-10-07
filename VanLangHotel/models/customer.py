@@ -45,10 +45,10 @@ class Customer(models.Model):
 
     @api.constrains('phone_number')
     def validate_phone(self):
-        if not self.phone_number or len(self.phone_number) > 10 or len(self.phone_number) < 10:
+        if not self.phone_number and self.phone_number != 10:
             raise ValidationError('You must define the phone number consisting of 10 characters.')
 
     @api.constrains('card_id')
     def validate_card_id(self):
-        if not self.card_id or len(self.card_id) > 9 or len(self.card_id) < 9:
-            raise ValidationError('You must define the Identity Card consisting of 10 characters.')
+        if not self.card_id or len(self.card_id) != 9:
+            raise ValidationError('You must define the Identity Card consisting of 9 characters.')

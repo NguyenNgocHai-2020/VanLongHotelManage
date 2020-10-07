@@ -1,6 +1,6 @@
 {
     'name': 'Văn Lang Hotel',
-    'version': '2.3',
+    'version': '2.4',
     'category': 'Manager',
     'sequence': 1,
     'summary': "This module provides tasks related to hotel management",

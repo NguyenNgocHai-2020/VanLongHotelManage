@@ -31,7 +31,7 @@ class Employee(models.Model):
         if self.name and self.regency:
             name = self.name
             name = name.replace(" ", "")
-            self.login = name + "_" + self.regency + "_vlh@gmail.com"
+            self.login = name + "_vlh@gmail.com"
 
 
 

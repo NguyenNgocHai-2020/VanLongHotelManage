@@ -37,13 +37,6 @@ class Booking(models.Model):
         ('booking_id_uniq', 'unique(booking_id)', 'Booking_id must be unique !'),
     ]
 
-    @api.onchange('room_ids')
-    def onchange_room_ids(self):
-        result = {}
-        domain = {'room_ids': [('room_state', '=', 'available')]}
-        result['domain'] = domain
-        return result
-
     @api.constrains('check_in', 'check_out')
     def validate_check_out(self):
         if self.check_out < self.check_in:
