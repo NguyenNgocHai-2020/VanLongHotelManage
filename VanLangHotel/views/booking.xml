@@ -211,6 +211,8 @@
                     <filter string="Check in" name="check_in" context="{'group_by': 'check_in'}"></filter>
                     <filter string="Check out" name="check_out" context="{'group_by': 'check_out'}"></filter>
                 </group>
+                <filter string="Active" name="active" domain='[("state","!=","booking")]'/>
+                <filter string="Inactive" name="Inactive" domain='[("state","=","booking")]'/>
             </search>
         </field>
     </record>

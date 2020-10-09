@@ -34,21 +34,26 @@ class ReportBooking(models.TransientModel):
         data = self.read()[0]
         date_to = data['date_to']
         date_from = data['date_from']
-        datetime_string = self.get_default_date_model().strftime("%Y-%m-%d %H:%M:%S")
+        datetime_string = self.get_default_date_model().strftime("%d-%m-%Y %H:%M:%S")
         date_string = self.get_default_date_model().strftime("%Y-%m-%d")
+        datetime_from_string = data['date_from'].strftime("%d-%m-%Y")
+        datetime_to_string = data['date_to'].strftime("%d-%m-%Y")
         report_name = 'Báo cáo doanh thu khách sạn Văn Lang'
-        user_xls = 'Người Lập Báo Cáo : %s' % self.env.user.name
+        date_select = '( Từ %s đến %s )' % (datetime_to_string,datetime_from_string)
+        user_xls = 'Người Lập : %s' % self.env.user.name
         date_report = 'Ngày Báo Cáo : %s' % (datetime_string)
         filename = '%s %s' % (report_name, date_string)
 
         columns = [
             ('STT', 5, 'no', 'no'),
-            ('Ngày', 20, 'char', 'char'),
-            ('ma_booking', 20, 'char', 'char'),
-            ('customer_id', 20, 'char', 'char'),
-            ('check_in', 20, 'char', 'char'),
-            ('check_out', 20, 'char', 'char'),
-            ('total_amount', 35, 'float', 'float'),
+            ('Mã đơn', 20, 'char', 'char'),
+            ('Mã khách hàng', 20, 'char', 'char'),
+            ('Ngày check in', 20, 'char', 'char'),
+            ('Ngày check out', 20, 'char', 'char'),
+            ('Tiền phòng', 35, 'float', 'float'),
+            ('Tiền dịch vụ', 35, 'float', 'float'),
+            ('Số tiền được giảm ', 35, 'float', 'float'),
+            ('Giá', 35, 'float', 'float'),
         ]
 
         datetime_format = '%Y-%m-%d %H:%M:%S'
@@ -65,11 +70,14 @@ class ReportBooking(models.TransientModel):
 
         query = """
                 SELECT 
-                    ((b.create_date AT TIME ZONE 'UTC') AT TIME ZONE 'ICT') :: DATE  as "create_date",
+                    
                     b."booking_id" as "ma_booking",           
                     b."customer_id" as "ten_khach_hang",
                     ((b.check_in AT TIME ZONE 'UTC') AT TIME ZONE 'ICT') :: DATE  as "check_in",
                     ((b.check_out AT TIME ZONE 'UTC') AT TIME ZONE 'ICT') :: DATE  as "check_out",
+                    b."room_total",
+                    b."sum_service_order",
+                    b."promotion_price",
                     b."total_amount" as "total_amount"
                 FROM booking as b 
                 WHERE ((b.create_date AT TIME ZONE 'UTC') AT TIME ZONE 'ICT') :: DATE BETWEEN '%s' AND '%s' AND b.state != 'booking'
@@ -85,8 +93,10 @@ class ReportBooking(models.TransientModel):
 
         worksheet = workbook.add_worksheet(report_name)
         worksheet.merge_range('A2:I3', report_name, wbf['title_doc'])
-        worksheet.merge_range('E5:I5', date_report, wbf['content_datetime'])
-        worksheet.merge_range('A6:C6', user_xls, wbf['content'])
+        worksheet.merge_range('F4:G4', date_select, wbf['content_datetime'])
+        worksheet.merge_range('A5:C5', user_xls, wbf['content'])
+        worksheet.merge_range('A6:C6', date_report, wbf['content_datetime'])
+
         row = 8
         col = 0
 
@@ -126,7 +136,7 @@ class ReportBooking(models.TransientModel):
             no += 1
 
         # worksheet.merge_range('A%s:B%s'%(row,row), 'Date', wbf['total_orange'])
-        worksheet.merge_range('A%s:B%s' % (row, row), 'Tổng', wbf['total_orange'])
+        worksheet.merge_range('A%s:B%s' % (row, row), 'Tổng tiền', wbf['total_orange'])
         worksheet.merge_range('C%s:D%s' % (row, row), '', wbf['content'])
         for x in range(len(columns)):
             if x in (0, 1):
