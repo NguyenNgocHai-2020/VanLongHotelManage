@@ -26,9 +26,9 @@ class Employee(models.Model):
         res = super(Employee, self).write(vals)
         return res
 
-    @api.onchange('name', 'regency')
+    @api.onchange('name')
     def onchange_login(self):
-        if self.name and self.regency:
+        if self.name :
             name = self.name
             name = name.replace(" ", "")
             self.login = name + "_vlh@gmail.com"
