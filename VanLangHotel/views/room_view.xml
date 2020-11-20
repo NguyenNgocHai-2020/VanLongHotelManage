@@ -120,18 +120,18 @@
         </field>
     </record>
 
-    <record id="room_search_view" model="ir.ui.view">
-        <field name="name">Room Search</field>
-        <field name="model">room</field>
-        <field name="arch" type="xml">
-            <search string="Room state">
-                <searchpanel>
-                    <field name="room_state" icon="fa-search-plus"/>
-                    <field name="room_type"/>
-                </searchpanel>
-            </search>
-        </field>
-    </record>
+<!--    <record id="room_search_view" model="ir.ui.view">-->
+<!--        <field name="name">Room Search</field>-->
+<!--        <field name="model">room</field>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <search string="Room state">-->
+<!--                <searchpanel>-->
+<!--                    <field name="room_state" icon="fa-search-plus"/>-->
+<!--                    <field name="room_type"/>-->
+<!--                </searchpanel>-->
+<!--            </search>-->
+<!--        </field>-->
+<!--    </record>-->
 
     <record id="room_by_booking_id_action" model="ir.actions.act_window">
         <field name="name">Room</field>

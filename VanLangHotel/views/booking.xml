@@ -164,40 +164,40 @@
     </record>
 
 
-    <record id="view_pivot" model="ir.ui.view">
-        <field name="name">Booking Pivot</field>
-        <field name="model">booking</field>
-        <field name="arch" type="xml">
-            <calendar string="Bookings" date_start="check_in">
-                <field name="customer_id"/>
-                <field name="total_amount" widget="monetary"/>
-            </calendar>
-        </field>
-    </record>
+<!--    <record id="view_pivot" model="ir.ui.view">-->
+<!--        <field name="name">Booking Pivot</field>-->
+<!--        <field name="model">booking</field>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <calendar string="Bookings" date_start="check_in">-->
+<!--                <field name="customer_id"/>-->
+<!--                <field name="total_amount" widget="monetary"/>-->
+<!--            </calendar>-->
+<!--        </field>-->
+<!--    </record>-->
 
-    <record id="booking_calendar_view" model="ir.ui.view">
-        <field name="name">Booking Calendar</field>
-        <field name="model">booking</field>
-        <field name="arch" type="xml">
-            <calendar string="Booking Calendar" date_start="check_in" color="state" hide_time="true" event_limit="5"
-                      mode="month">
-                <field name="customer_id"/>
-                <field name="room_ids"/>
-                <field name="total_amount" widget="monetary"/>
-            </calendar>
-        </field>
-    </record>
+<!--    <record id="booking_calendar_view" model="ir.ui.view">-->
+<!--        <field name="name">Booking Calendar</field>-->
+<!--        <field name="model">booking</field>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <calendar string="Booking Calendar" date_start="check_in" color="state" hide_time="true" event_limit="5"-->
+<!--                      mode="month">-->
+<!--                <field name="customer_id"/>-->
+<!--                <field name="room_ids"/>-->
+<!--                <field name="total_amount" widget="monetary"/>-->
+<!--            </calendar>-->
+<!--        </field>-->
+<!--    </record>-->
 
-    <record id="booking_graph_view" model="ir.ui.view">
-        <field name="name">Booking Calendar</field>
-        <field name="model">booking</field>
-        <field name="arch" type="xml">
-            <graph string="Booking Analysis" type="line">
-                <field name="check_in" type="row" interval="day"/>
-                <field name="total_amount" type="measure"/>
-            </graph>
-        </field>
-    </record>
+<!--    <record id="booking_graph_view" model="ir.ui.view">-->
+<!--        <field name="name">Booking Calendar</field>-->
+<!--        <field name="model">booking</field>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <graph string="Booking Analysis" type="line">-->
+<!--                <field name="check_in" type="row" interval="day"/>-->
+<!--                <field name="total_amount" type="measure"/>-->
+<!--            </graph>-->
+<!--        </field>-->
+<!--    </record>-->
 
     <record id="booking_search_view" model="ir.ui.view">
         <field name="name">Booking Search</field>

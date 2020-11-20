@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     <data>
+
         <record id="booking_1" model="booking">
             <field name="customer_id">1</field>
             <field name="check_in">2020-10-10</field>
             <field name="check_out">2020-10-12</field>
             <field name="state">check_in</field>
+            <field name="room_ids" eval="[(4, ref('VanLangHotel.room_1'))]"/>
             <field name="amount_adult">5</field>
             <field name="amount_child">4</field>
-            <field name="room_ids">8</field>
         </record>
     </data>
 </odoo>
